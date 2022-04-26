@@ -1,5 +1,4 @@
-import {MESSAGE_TYPES} from '@/enums'
-
+import { MESSAGE_TYPES } from '@/enums'
 
 async function r() {
   const tabId = await getCurrentTabId()
@@ -11,7 +10,7 @@ async function r() {
       return t.json()
     })
     .then(res => {
-      chrome.tabs.sendMessage(Number(tabId), {type:MESSAGE_TYPES.ANALYSIS_RES,data:res})
+      chrome.tabs.sendMessage(Number(tabId), { type: MESSAGE_TYPES.ANALYSIS_RES, data: res })
     })
     .catch((err: Error) => {
       console.error(err)
@@ -33,11 +32,11 @@ chrome.runtime.onMessage.addListener(request => {
   }
 })
 
-async function informAnalysis(){
+async function informAnalysis() {
   const tabId = await getCurrentTabId()
-  if(!tabId) return
-  // 发送给当前激活的tab
-  chrome.tabs.sendMessage(Number(tabId), {type:MESSAGE_TYPES.INFORM_ANALYSIS})
+  if (!tabId) return
+  // 发送给当前激活的 tab
+  chrome.tabs.sendMessage(Number(tabId), { type: MESSAGE_TYPES.INFORM_ANALYSIS })
 }
 
 async function getCurrentTabId() {
