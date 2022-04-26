@@ -1,0 +1,7 @@
+public
+/src/**/*.scss
+dist
+node_modules
+coverage
+/src/**/svg-dict.ts
+
