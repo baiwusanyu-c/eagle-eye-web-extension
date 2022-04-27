@@ -3,8 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import Components from 'unplugin-vue-components/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { transformScript } from 'vite-plugin-svg-transform-script'
 import { r } from './scripts/util'
-
 // https://vitejs.dev/config/
 export default defineConfig({
   base: 'ui',
@@ -21,6 +21,13 @@ export default defineConfig({
     WindiCSS(),
     Components({
       dts: true,
+    }),
+    transformScript({
+      input: './icon/',
+      output: './src/utils/',
+      name: 'svg-dict',
+      type: 'ts',
+      format: 'default',
     }),
   ],
   build: {

@@ -31,7 +31,8 @@
     "@types/qs": "^6.9.7",
     "axios": "^0.24.0",
     "element-plus": "2.1.8",
-    "qs": "^6.10.1"
+    "qs": "^6.10.1",
+    "vite-plugin-svg-transform-script": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
