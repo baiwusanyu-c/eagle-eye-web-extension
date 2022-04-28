@@ -9,9 +9,10 @@
 }
 .be-button__medium {
     box-sizing: border-box;
-    height: 2rem;
-    padding: 0 0.625rem;
-    line-height: 2rem;
+    height: 32px;
+    padding: 0 10px;
+    line-height: 32px;
+    font-size: 14px;
 }
 .be-button {
     display: inline-block;

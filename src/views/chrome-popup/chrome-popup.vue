@@ -43,7 +43,10 @@
         @change="handleChange">
       </be-switch>
       <p class="text-base mb-4 mt-16 text-gray-500">Submit Malicious website or message？</p>
-      <a class="text-base text-sky-400 pointer-events-auto" :href="LINK.GOOGLE_FEEDBACK"
+      <a
+        class="text-base text-sky-400 pointer-events-auto"
+        :href="LINK.GOOGLE_FEEDBACK"
+        target="_blank"
         >FeedBack</a
       >
     </div>

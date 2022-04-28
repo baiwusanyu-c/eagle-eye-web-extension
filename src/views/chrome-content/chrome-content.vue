@@ -7,6 +7,7 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
+
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -155,7 +156,10 @@
             custom-class="eagle-twitter--icon"
             icon="iconTwitter"
             @click="openWindow(SOCIAL_LINK.TWITTER)"></be-icon>
-          <be-icon icon="iconTelegram" @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
+          <be-icon
+            icon="iconTelegram"
+            custom-class="eagle-telegram--icon"
+            @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
       </div>
     </div>
@@ -167,56 +171,80 @@
   </be-dialog>
 </template>
 <style>
+  #beosin_eagle_eye_dialog {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace sans-serif;
+  }
+
   .eagle-eye-dialog .be-button__mini {
     height: 24px;
     line-height: 24px;
     padding: 0 15px;
     border-radius: 4px;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title {
     position: absolute;
     top: 15px;
     left: 15px;
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     -webkit-box-pack: start;
     justify-content: flex-start;
     height: 30px;
+    align-items: center;
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: 700;
+    color: #303133;
+    font-family: inherit;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon {
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
     display: flex;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
     margin: 0;
     color: rgba(245, 158, 11, 1);
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 36px;
+    line-height: 40px;
+    padding: 0;
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info {
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 32px auto;
     width: 80%;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info p {
     text-align: left;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 16px;
+    line-height: 24px;
     margin-top: 0;
-    margin-bottom: 1em;
+    margin-bottom: 16px;
+    color: #303133;
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info span {
     color: rgba(244, 63, 94, 1);
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer {
     width: 80%;
     display: flex;
@@ -225,33 +253,46 @@
     -webkit-box-pack: start;
     justify-content: flex-start;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .logo {
     line-height: 50px;
-    font-size: 1rem;
+    font-size: 16px;
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .be-dialog--container__head {
     text-align: initial;
     font-weight: 700;
   }
+
   #beosin_eagle_eye_dialog .be-dialog--container__head span {
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: inherit;
   }
+
   #beosin_eagle_eye_dialog .eagle-eye--popup__footer {
     -webkit-box-align: center;
     align-items: center;
     display: flex;
-    margin-left: 1rem;
+    margin-left: 16px;
   }
+
   #beosin_eagle_eye_dialog .be-dialog--modal {
-    z-index: 9998;
+    z-index: 19891015;
   }
+
   #beosin_eagle_eye_dialog .be-dialog {
-    z-index: 9999;
+    z-index: 198910146;
   }
+
   #beosin_eagle_eye_dialog .be-dialog--container {
     width: 700px;
     height: 420px;
+  }
+  #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--body,
+  #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--footer {
+    padding: 16px 20px;
   }
   #beosin_eagle_eye_dialog .eagle-btn {
     box-sizing: border-box;
@@ -261,21 +302,31 @@
     background: linear-gradient(90deg, #0de3b2 0%, #008ee9 100%);
     opacity: 1;
   }
+
   #beosin_eagle_eye_dialog .eagle-btn:hover,
   #beosin_eagle_eye_dialog .eagle-btn:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     opacity: 0.8;
   }
+
   #beosin_eagle_eye_dialog .be-dialog .be-icon {
     height: 24px;
     width: 24px;
     cursor: pointer;
   }
+
+  #beosin_eagle_eye_dialog .eagle-twitter--icon,
+  #beosin_eagle_eye_dialog .eagle-telegram--icon {
+    height: 24px;
+    width: 24px;
+  }
+
   #beosin_eagle_eye_dialog .eagle-warning--icon,
   #beosin_eagle_eye_dialog .eagle-twitter--icon,
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title img {
-    margin-right: 1rem;
+    margin-right: 16px;
   }
+
   #beosin_eagle_eye_dialog .eagle-warning--icon .be-icon {
     height: 64px;
     width: 64px;
