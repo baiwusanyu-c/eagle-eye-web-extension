@@ -1,9 +1,10 @@
+import type { IAnalysis } from '@/api/analysis'
 import { MESSAGE_TYPES } from '@/enums'
-import { getRouterInfo } from '@/api/api-test'
+import { analysisUrl } from '@/api/analysis'
 
-async function r() {
+async function getAnalysis(params: IAnalysis) {
   const tabId = await getCurrentTabId()
-  const res = await getRouterInfo({ systemCode: 'beosin-eye' })
+  const res = await analysisUrl(params)
   chrome.tabs.sendMessage(Number(tabId), { type: MESSAGE_TYPES.ANALYSIS_RES, data: res })
 }
 
@@ -11,7 +12,7 @@ chrome.runtime.onMessage.addListener(request => {
   // content 载入时调用
   // 分析网站是否为钓鱼
   if (request.type === MESSAGE_TYPES.GET_ANALYSIS_RES) {
-    r()
+    getAnalysis({ url: request.data.host })
     return
   }
   // 接收 是否设置插件开启

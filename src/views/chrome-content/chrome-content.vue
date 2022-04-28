@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { defineComponent, ref } from 'vue'
   import { debounce } from 'lodash-es'
-  import { MESSAGE_TYPES } from '@/enums'
+  import { ANALYSIS_RES, MESSAGE_TYPES } from '@/enums'
   import { getHost } from '@/utils/common'
   import { web3Reg } from '@/utils/reg'
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
@@ -98,12 +98,12 @@
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request): void => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            console.log(request.data)
-            resVal.value = request.data
-            openMsg()
-            // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
-            // 关掉、测试关掉后跳转 能否监听
-            observer?.disconnect()
+            if (request.data.data === ANALYSIS_RES.UNSECURITY) {
+              openMsg()
+              // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
+              // 关掉、测试关掉后跳转 能否监听
+              observer?.disconnect()
+            }
           }
         })
       }
@@ -119,7 +119,6 @@
       const { openWindow } = useCommon()
       return {
         showMsg,
-        resVal,
         infos,
         openWindow,
         SOCIAL_LINK,
