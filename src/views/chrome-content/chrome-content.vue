@@ -47,12 +47,12 @@
         // 监听新的请求
         observer = new PerformanceObserver(
           debounce(list => {
-            infos.value = infos.value.concat(filterJsRequestInfo(list) || [])
+            infos.value = infos.value.concat(filterJsRequestInfo(list))
             // 判断是否Web3
             isWeb3WebSite()
             // 分析钓鱼
             analysisPhishingSite()
-          }, 2000)
+          }, 2000) as PerformanceObserverCallback
         )
         observer.observe({ entryTypes: ['resource'] })
       }
@@ -60,7 +60,7 @@
        * 过滤出js请求
        * @param list
        */
-      const filterJsRequestInfo = (list: PerformanceObserverEntryList): Array<string> | void => {
+      const filterJsRequestInfo = (list: PerformanceObserverEntryList): Array<string> => {
         if (list) {
           return list
             .getEntriesByType('resource')
@@ -69,6 +69,7 @@
             })
             .map(val => val.name)
         }
+        return []
       }
       const isWeb3 = ref<boolean>(false)
       const isWeb3WebSite = (): void => {
@@ -129,36 +130,33 @@
 <template>
   <be-dialog v-model:is-show="showMsg" titles=" " layout="right">
     <div>
-      <div class="flex justify-start h-30px mb-4" style="position: absolute; top: 15px; left: 15px">
-        <img alt="" src="../../../public/favicon_32.png" class="mr-4" />
-        <h2 class="text-2xl font-bold">Beosin Alert</h2>
+      <div class="eagle-eye-dialog--title">
+        <img alt="" src="../../../public/favicon_32.png" />
+        <h2 class="">Beosin Alert</h2>
       </div>
-      <div class="flex justify-center items-center my-8">
+
+      <div class="eagle-eye-dialog--body__icon">
         <be-icon
           color="#f43f5e"
-          custom-class="mr-4 eagle-warning--icon"
+          custom-class="eagle-warning--icon"
           icon="iconEagleWarning"></be-icon>
-        <h1 class="text-amber-500 text-4xl m-0">Malicious Website！</h1>
+        <h1>Malicious Website！</h1>
       </div>
-      <div class="my-0 mx-auto mb-8" style="width: 80%">
-        <p class="text-base text-left">
-          The current site may be a <span class="text-rose-500">fake or phishing or scam</span> web3
-          site. There could be damage to your
-          <span class="text-rose-500">private keys or funds.</span> Please
-          <span class="text-rose-500">close it</span> as soon as possible.
+      <div class="eagle-eye-dialog--body__info">
+        <p>
+          The current site may be a <span>fake or phishing or scam</span> web3 site. There could be
+          damage to your <span>private keys or funds.</span> Please <span>close it</span> as soon as
+          possible.
         </p>
       </div>
-      <div class="flex justify-start h-50px my-0 mx-auto" style="width: 80%">
-        <span class="text-base leading-50px">© Beosin</span>
-        <div class="flex items-center eagle-eye--popup--footer ml-4">
+      <div class="eagle-eye-dialog--body__footer">
+        <span class="logo">© Beosin</span>
+        <div class="eagle-eye--popup--footer">
           <be-icon
-            custom-class="mr-4 cursor-pointer"
+            custom-class="eagle-twitter--icon"
             icon="iconTwitter"
             @click="openWindow(SOCIAL_LINK.TWITTER)"></be-icon>
-          <be-icon
-            custom-class="cursor-pointer"
-            icon="iconTelegram"
-            @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
+          <be-icon icon="iconTelegram" @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
       </div>
     </div>
@@ -176,11 +174,75 @@
     padding: 0 15px;
     border-radius: 4px;
   }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--title {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    margin-bottom: 1rem;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    height: 30px;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--title h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon {
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
+    margin: 0;
+    color: rgba(245, 158, 11, 1);
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info {
+    margin: 0 auto 2rem auto;
+    width: 80%;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info p {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info span {
+    color: rgba(244, 63, 94, 1);
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    height: 50px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .logo {
+    line-height: 50px;
+    font-size: 1rem;
+  }
   #beosin_eagle_eye_dialog .be-dialog-container-head {
     text-align: initial;
+    font-weight: 700;
   }
   #beosin_eagle_eye_dialog .be-dialog-container-head span {
-    @apply text-2xl font-bold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  #beosin_eagle_eye_dialog .eagle-eye--popup--footer {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    margin-left: 1rem;
   }
   #beosin_eagle_eye_dialog .be-dialog-modal {
     z-index: 9998;
@@ -206,9 +268,17 @@
     opacity: 0.8;
   }
   #beosin_eagle_eye_dialog .be-dialog .be-icon {
-    @apply h-6 w-6;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+  #beosin_eagle_eye_dialog .eagle-warning--icon,
+  #beosin_eagle_eye_dialog .eagle-twitter--icon,
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--title img {
+    margin-right: 1rem;
   }
   #beosin_eagle_eye_dialog .eagle-warning--icon .be-icon {
-    @apply h-16 w-16;
+    height: 64px;
+    width: 64px;
   }
 </style>

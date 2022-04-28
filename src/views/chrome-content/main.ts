@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import 'virtual:windi.css'
 import { loadSvg } from 'vite-plugin-svg-transform-script'
 // @ts-ignore
 import BeUI from '../../../public/be-ui/be-ui.es.js'
