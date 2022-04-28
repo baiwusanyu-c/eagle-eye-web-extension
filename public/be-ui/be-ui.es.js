@@ -2533,7 +2533,7 @@ const _sfc_main$e = defineComponent({
     const dialogModels = ref("");
     onMounted(() => {
       if (props.isOpenModal) {
-        dialogModels.value = "be-dialog-modal";
+        dialogModels.value = "be-dialog--modal be-modal";
       }
       if (props.isShow) {
         listenerEscExitFunc();
@@ -2556,11 +2556,11 @@ const _hoisted_1$7 = {
   class: "be-dialog"
 };
 const _hoisted_2$2 = ["id"];
-const _hoisted_3$2 = { class: "be-dialog-title" };
+const _hoisted_3$2 = { class: "be-dialog--title" };
 const _hoisted_4$2 = ["id"];
-const _hoisted_5$2 = { class: "be-dialog-close" };
-const _hoisted_6$2 = { class: "be-dialog-body" };
-const _hoisted_7$1 = { class: "be-dialog-body__inner" };
+const _hoisted_5$2 = { class: "be-dialog--icon__close" };
+const _hoisted_6$2 = { class: "be-dialog--body" };
+const _hoisted_7$1 = { class: "be-dialog--body__inner" };
 const _hoisted_8$1 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A ");
 function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_be_icon = resolveComponent("be-icon");
@@ -2576,19 +2576,19 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
         _ctx.isShow ? (openBlock(), createElementBlock("div", _hoisted_1$7, [
           withDirectives((openBlock(), createElementBlock("div", {
             id: `be_dialog_container${_ctx.uid}`,
-            class: normalizeClass(["be-dialog-container", _ctx.customClassStyle])
+            class: normalizeClass(["be-dialog--container", _ctx.customClassStyle])
           }, [
             createElementVNode("div", _hoisted_3$2, [
               createElementVNode("div", {
                 id: `be_head${_ctx.uid}`,
-                class: "be-dialog-container-head"
+                class: "be-dialog--container__head"
               }, [
                 createElementVNode("span", null, toDisplayString(_ctx.titles), 1),
                 createElementVNode("div", _hoisted_5$2, [
                   renderSlot(_ctx.$slots, "headerIcon", {}, () => [
                     createVNode(_component_be_icon, {
                       icon: "deleteIc",
-                      "custom-class": "be-dialog-close-btn",
+                      "custom-class": "be-dialog--icon__close-btn",
                       onClick: _cache[0] || (_cache[0] = ($event) => _ctx.handleClose("btn"))
                     })
                   ])
@@ -2602,14 +2602,14 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
             ]),
             _ctx.showFooter ? (openBlock(), createElementBlock("div", {
               key: 0,
-              class: normalizeClass(`be-dialog-footer be-dialog-footer__${_ctx.layout}`)
+              class: normalizeClass(`be-dialog--footer be-dialog--footer__${_ctx.layout}`)
             }, [
               renderSlot(_ctx.$slots, "footer", {}, () => [
                 createVNode(_component_be_button, {
                   type: "primary",
                   bordered: "",
                   round: "3",
-                  "custom-class": "be-dialog-footer-btn",
+                  "custom-class": "be-dialog--footer__btn",
                   onClick: _ctx.handleConfirm
                 }, {
                   default: withCtx(() => [

@@ -2,9 +2,9 @@ import { createApp } from 'vue'
 import { loadSvg } from 'vite-plugin-svg-transform-script'
 // @ts-ignore
 import BeUI from '../../../public/be-ui/be-ui.es.js'
-import '../../../public/be-ui/style.css'
 import svgDict from '../../utils/svg-dict'
 import content from '../chrome-content/chrome-content.vue'
+import '../../assets/style/packages/index.scss'
 /**
  * 初始化图标，生成svgDom
  */

@@ -13,6 +13,21 @@ export default defineConfig({
       '@': r('src'),
     },
   },
+  css: {
+    // css预处理器
+    preprocessorOptions: {
+      scss: {
+        // 引入 var.scss 这样就可以在全局中使用 var.scss中预定义的变量了
+        additionalData: `
+            @import "./src/assets/style/common/var.scss";
+            @import "./src/assets/style/common/config.scss";
+            @import "./src/assets/style/common/mixin.scss";
+            @import "./src/assets/style/common/common.scss";
+            @import "./src/assets/style/common/animate.scss";
+            `,
+      },
+    },
+  },
   plugins: [
     vue(),
     vueJsx(),

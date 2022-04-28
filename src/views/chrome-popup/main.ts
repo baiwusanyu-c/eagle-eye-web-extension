@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import { loadSvg } from 'vite-plugin-svg-transform-script'
-import '../../../public/be-ui/style.css'
+import '../../assets/style/packages/be-switch.scss'
 import 'virtual:windi.css'
+
 import svgDict from '../../utils/svg-dict'
 // @ts-ignore
 import BeUI from '../../../public/be-ui/be-ui.es.js'

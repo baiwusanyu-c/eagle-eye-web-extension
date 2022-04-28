@@ -151,7 +151,7 @@
       </div>
       <div class="eagle-eye-dialog--body__footer">
         <span class="logo">© Beosin</span>
-        <div class="eagle-eye--popup--footer">
+        <div class="eagle-eye--popup__footer">
           <be-icon
             custom-class="eagle-twitter--icon"
             icon="iconTwitter"
@@ -230,27 +230,27 @@
     line-height: 50px;
     font-size: 1rem;
   }
-  #beosin_eagle_eye_dialog .be-dialog-container-head {
+  #beosin_eagle_eye_dialog .be-dialog--container__head {
     text-align: initial;
     font-weight: 700;
   }
-  #beosin_eagle_eye_dialog .be-dialog-container-head span {
+  #beosin_eagle_eye_dialog .be-dialog--container__head span {
     font-size: 1.5rem;
     line-height: 2rem;
   }
-  #beosin_eagle_eye_dialog .eagle-eye--popup--footer {
+  #beosin_eagle_eye_dialog .eagle-eye--popup__footer {
     -webkit-box-align: center;
     align-items: center;
     display: flex;
     margin-left: 1rem;
   }
-  #beosin_eagle_eye_dialog .be-dialog-modal {
+  #beosin_eagle_eye_dialog .be-dialog--modal {
     z-index: 9998;
   }
   #beosin_eagle_eye_dialog .be-dialog {
     z-index: 9999;
   }
-  #beosin_eagle_eye_dialog .be-dialog-container {
+  #beosin_eagle_eye_dialog .be-dialog--container {
     width: 700px;
     height: 420px;
   }
