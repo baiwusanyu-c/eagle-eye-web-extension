@@ -6,7 +6,7 @@
  */
 export enum LINK {
   HOME_PAGE = 'https://eagleeye.beosin.com/',
-  GOOGLE_FEEDBACK = 'https://eagleeye.beosin.com/',
+  GOOGLE_FEEDBACK = 'https://docs.google.com/forms/d/e/1FAIpQLSdRSU58TgPAL7Xo903qJMxj3ir6QLiBjO6AaiO5xA853ZL2MQ/viewform',
 }
 
 export enum SOCIAL_LINK {
