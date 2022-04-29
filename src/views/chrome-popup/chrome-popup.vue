@@ -4,14 +4,18 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import { LINK, SOCIAL_LINK } from '@/enums/link'
   import useCommon from '@/hooks/use-common'
-  const isOpen = ref<string>('false')
+  const isOpen = ref<string>('true')
+
   const { getItem, setItem } = useStorage()
   nextTick(() => {
     getItem(CACHE_KEYS.IS_OPEN).then(res => {
       if (res && res === 'true') {
-        isOpen.value = res
+        isOpen.value = 'true'
+      } else if (res && res === 'false') {
+        isOpen.value = 'false'
       } else {
-        setItem(CACHE_KEYS.IS_OPEN, 'false')
+        isOpen.value = 'true'
+        setItem(CACHE_KEYS.IS_OPEN, 'true')
       }
     })
   })
