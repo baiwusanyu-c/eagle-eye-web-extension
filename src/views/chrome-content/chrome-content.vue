@@ -84,7 +84,6 @@
           console.log(error)
         }
       }
-      const resVal = ref({})
       /**
        * 后台请求 是否为钓鱼网站
        */
@@ -172,6 +171,8 @@
 </template>
 <style>
   #beosin_eagle_eye_dialog {
+    position: fixed;
+    z-index: 198910146;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace sans-serif;
   }
@@ -276,14 +277,6 @@
     align-items: center;
     display: flex;
     margin-left: 16px;
-  }
-
-  #beosin_eagle_eye_dialog .be-dialog--modal {
-    z-index: 19891015;
-  }
-
-  #beosin_eagle_eye_dialog .be-dialog {
-    z-index: 198910146;
   }
 
   #beosin_eagle_eye_dialog .be-dialog--container {
