@@ -192,11 +192,7 @@
 </template>
 <style>
   #beosin_eagle_eye_dialog {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
+    position: fixed;
     z-index: 198910146;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace sans-serif;
@@ -334,7 +330,7 @@
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
     font-size: 18px;
     margin-bottom: 0;
-    color: #1d263b;
+    color: #ffffff;
     outline: 0;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn:hover,
