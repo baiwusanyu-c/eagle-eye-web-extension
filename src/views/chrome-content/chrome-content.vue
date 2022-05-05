@@ -53,7 +53,7 @@
             isWeb3WebSite()
             // 分析钓鱼
             analysisPhishingSite()
-          }, 2000) as PerformanceObserverCallback
+          }, 1500) as PerformanceObserverCallback
         )
         observer.observe({ entryTypes: ['resource'] })
       }
@@ -101,6 +101,7 @@
         })
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request): void => {
+          console.log(request)
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
             const res = request.data.data
             if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
@@ -124,6 +125,7 @@
         }
       })
       const { openWindow } = useCommon()
+
       return {
         analysisRes,
         showMsg,
@@ -146,10 +148,14 @@
           <h1 class="font-alibaba eagle-eye-dialog--text">Malicious Website!</h1>
         </div>
         <div class="eagle-eye-dialog--body__info">
-          <p class="font-alibaba eagle-eye-dialog--text">
-            The current Web3 site may be <span class="font-alibaba">fake or phishing.</span> It
-            could be steal your <span class="font-alibaba"> private keys and funds.</span> Please
-            stay vigilant!
+          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
+            The current Web3 site may be <span class="font-alibaba">fake or phishing.</span>
+          </p>
+          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
+            It could be steal your <span class="font-alibaba"> private keys and funds.</span>
+          </p>
+          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
+            Please stay vigilant!
           </p>
         </div>
       </div>
@@ -168,10 +174,12 @@
             custom-class="eagle-telegram--icon"
             @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
-        <p v-if="analysisRes.source_name" class="font-alibaba eagle-eye-dialog--text">
+        <p
+          v-if="analysisRes.source_name"
+          class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--source">
           Thanks to
           <a
-            :href="analysisRes.source_url"
+            :href="`https://${analysisRes.source_url}`"
             class="font-alibaba"
             style="text-decoration: underline; font-weight: bold"
             target="_blank"
@@ -329,7 +337,8 @@
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
     font-size: 18px;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
     color: #ffffff;
     outline: 0;
   }
@@ -369,6 +378,9 @@
   #beosin_eagle_eye_dialog .be-dialog--icon__close {
     line-height: 32px;
   }
+  .eagle-eye-dialog--info {
+    margin-bottom: 0 !important;
+  }
   .eagle-eye-dialog--text,
   .eagle-eye-dialog--text a {
     color: #1d263b;
@@ -403,6 +415,9 @@
       height: 63%;
       bottom: 10%;
       top: initial;
+    }
+    .eagle-eye-dialog--source {
+      width: 60%;
     }
   }
 </style>
