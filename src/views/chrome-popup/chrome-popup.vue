@@ -33,12 +33,12 @@
 
 <template>
   <div class="eagle-eye--popup relative">
-    <div class="flex justify-start h-30px mb-4">
+    <div class="flex justify-start h-30px mb-12">
       <img alt="" src="../../../public/favicon_32.png" class="mr-4" />
-      <h2 class="text-2xl font-bold">Beosin Alert</h2>
+      <h2 class="text-2xl font-bold font-alibaba">Beosin Alert</h2>
     </div>
-    <div class="w-full h-350px p-4 pr-0">
-      <h2 class="text-lg mb-4">Open Beosin Alert</h2>
+    <div class="w-full h-300px p-4 pr-0">
+      <h2 class="text-3xl mb-8 font-alibaba font-bold">Open Beosin Alert</h2>
       <be-switch
         v-model="isOpen"
         checked-value="true"
@@ -46,16 +46,16 @@
         un-checked-value="false"
         @change="handleChange">
       </be-switch>
-      <p class="text-base mb-4 mt-16 text-gray-500">Submit Malicious website or message？</p>
+      <p class="text-base mb-4 mt-16 font-alibaba">Submit Malicious website or message？</p>
       <a
-        class="text-base text-sky-400 pointer-events-auto"
+        class="text-base font-bold pointer-events-auto text-mainG border border-mainG w-140px h-44px block text-center rounded-md leading-44px"
         :href="LINK.GOOGLE_FEEDBACK"
         target="_blank"
         >FeedBack</a
       >
     </div>
     <div class="flex justify-between border-t-1 border-gray-500/50 relative left-0 bottom-0 h-50px">
-      <span class="text-lg leading-50px">© Beosin</span>
+      <span class="text-sm font-bold leading-50px">© Beosin</span>
       <div class="flex items-center eagle-eye--popup--footer">
         <be-icon
           custom-class="mr-4 cursor-pointer"
@@ -72,9 +72,28 @@
 
 <style>
   .eagle-eye--popup {
-    @apply w-350px h-450px p-4;
+    @apply w-455px h-476px p-8;
   }
   .eagle-eye--popup--footer .be-icon {
     @apply h-6 w-6;
+  }
+  .eagle-eye--popup .be-switch__checked {
+    @apply bg-mainG;
+  }
+  .eagle-eye--popup .be-switch__large {
+    height: 40px;
+    width: 75px;
+  }
+  .eagle-eye--popup .be-switch__large .be-switch--circle {
+    width: 1rem;
+    height: 1rem;
+  }
+  .eagle-eye--popup .be-switch__unChecked .be-switch--circle {
+    position: absolute;
+    left: 8px;
+    margin-left: 1px;
+  }
+  .eagle-eye--popup .be-switch__checked .be-switch--circle {
+    left: calc(100% - 8px);
   }
 </style>

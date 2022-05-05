@@ -2,6 +2,20 @@
 @import "var";
 @import "mixin";
 $componentsClass:null;
+@font-face {
+  font-family: AlibabaPuHuiTi-Regular;
+  src: url('../../font/Alibaba-PuHuiTi-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: AlibabaPuHuiTi-Medium;
+  src: url('../../font/Alibaba-PuHuiTi-Medium.ttf') format('truetype');
+}
+.font-alibaba{
+  font-family: AlibabaPuHuiTi-Regular AlibabaPuHuiTi-Medium sans-serif;
+}
+
+
 input:focus-visible {
   outline-offset: 0;
 }

@@ -6,7 +6,7 @@ type Cache = Ref<Record<string, unknown>>
 const cache = ref({}) as Cache
 
 export enum CACHE_KEYS {
-  IS_OPEN = 'IS_OPEN',// 是否开启插件
+  IS_OPEN = 'IS_OPEN', // 是否开启插件
 }
 
 export function useStorage() {
