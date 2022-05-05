@@ -102,9 +102,10 @@
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request): void => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            if (request.data.detection_result === ANALYSIS_RES.UNSECURITY) {
-              analysisRes.value.source_name = request.data.source_name
-              analysisRes.value.source_url = request.data.source_url
+            const res = request.data.data
+            if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
+              analysisRes.value.source_name = res.source_name
+              analysisRes.value.source_url = res.source_url
               openMsg()
               // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
               // 关掉、测试关掉后跳转 能否监听
@@ -167,7 +168,7 @@
             custom-class="eagle-telegram--icon"
             @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
-        <p v-if="analysisRes.source_name" class="font-alibaba eagle-eye-dialog--text">
+        <p class="font-alibaba eagle-eye-dialog--text">
           Thanks to
           <a
             :href="analysisRes.source_url"
@@ -191,7 +192,11 @@
 </template>
 <style>
   #beosin_eagle_eye_dialog {
-    position: fixed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
     z-index: 198910146;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace sans-serif;
@@ -328,6 +333,9 @@
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
     font-size: 18px;
+    margin-bottom: 0;
+    color: #1d263b;
+    outline: 0;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn:hover,
   #beosin_eagle_eye_dialog .eagle-confirm--btn:focus {
@@ -368,5 +376,37 @@
   .eagle-eye-dialog--text,
   .eagle-eye-dialog--text a {
     color: #1d263b;
+  }
+
+  /* 125% 适配 */
+  @media screen and (min-width: 100px) and (max-width: 1000px) {
+    #beosin_eagle_eye_dialog .be-dialog--container {
+      width: 500px;
+    }
+    #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon {
+      height: auto;
+      margin-top: 22px;
+      margin-bottom: 22px;
+    }
+    #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
+      line-height: 40px;
+      font-size: 32px;
+    }
+    #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .logo {
+      line-height: 24px;
+    }
+    #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--footer {
+      padding-top: 0;
+    }
+    #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--body {
+      padding-bottom: 0;
+    }
+    #beosin_eagle_eye_dialog .bg-heck--img {
+      right: -15px;
+      width: 50%;
+      height: 63%;
+      bottom: 10%;
+      top: initial;
+    }
   }
 </style>
