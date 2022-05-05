@@ -168,7 +168,7 @@
             custom-class="eagle-telegram--icon"
             @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
-        <p class="font-alibaba eagle-eye-dialog--text">
+        <p v-if="analysisRes.source_name" class="font-alibaba eagle-eye-dialog--text">
           Thanks to
           <a
             :href="analysisRes.source_url"
