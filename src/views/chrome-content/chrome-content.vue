@@ -123,7 +123,6 @@
         }
       })
       const { openWindow } = useCommon()
-      openMsg()
       return {
         analysisRes,
         showMsg,
