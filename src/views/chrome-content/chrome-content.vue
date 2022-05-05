@@ -87,9 +87,9 @@
       /**
        * 后台请求 是否为钓鱼网站
        */
-      const analysisRes = ref({
-        name: 'Urlscan',
-        url: 'www.baidu.com',
+      const analysisRes = ref<{ source_name: string; source_url: string }>({
+        source_name: '',
+        source_url: '',
       })
       const analysisPhishingSite = (): void => {
         if (!isWeb3.value) return
@@ -102,9 +102,9 @@
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request): void => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            if (request.data.data === ANALYSIS_RES.UNSECURITY) {
-              // analysisRes.name =
-              // analysisRes.url =
+            if (request.data.detection_result === ANALYSIS_RES.UNSECURITY) {
+              analysisRes.value.source_name = request.data.source_name
+              analysisRes.value.source_url = request.data.source_url
               openMsg()
               // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
               // 关掉、测试关掉后跳转 能否监听
@@ -167,14 +167,14 @@
             custom-class="eagle-telegram--icon"
             @click="openWindow(SOCIAL_LINK.TELERGRAM)"></be-icon>
         </div>
-        <p class="font-alibaba eagle-eye-dialog--text">
+        <p v-if="analysisRes.source_name" class="font-alibaba eagle-eye-dialog--text">
           Thanks to
           <a
-            :href="analysisRes.url"
+            :href="analysisRes.source_url"
             class="font-alibaba"
             style="text-decoration: underline; font-weight: bold"
             target="_blank"
-            >{{ analysisRes.name }}</a
+            >{{ analysisRes.source_name }}</a
           >
           fo for supporting this result.
         </p>
