@@ -37,7 +37,7 @@
       <img alt="" src="../../../public/favicon_32.png" class="mr-4" />
       <h2 class="text-2xl font-bold font-alibaba">Beosin Alert</h2>
     </div>
-    <div class="w-full h-300px p-4 pr-0">
+    <div class="w-full h-300px">
       <h2 class="text-3xl mb-8 font-alibaba font-bold">Open Beosin Alert</h2>
       <be-switch
         v-model="isOpen"
@@ -48,7 +48,8 @@
       </be-switch>
       <p class="text-base mb-4 mt-16 font-alibaba">Submit Malicious website or message？</p>
       <a
-        class="text-base font-bold pointer-events-auto text-mainG border border-mainG w-140px h-44px block text-center rounded-md leading-44px"
+        style="border-radius: 8px"
+        class="text-base font-bold pointer-events-auto text-mainG border border-mainG w-140px h-44px block text-center leading-44px"
         :href="LINK.GOOGLE_FEEDBACK"
         target="_blank"
         >FeedBack</a
@@ -72,7 +73,7 @@
 
 <style>
   .eagle-eye--popup {
-    @apply w-455px h-476px p-8;
+    @apply w-388px h-472px p-8;
   }
   .eagle-eye--popup--footer .be-icon {
     @apply h-6 w-6;

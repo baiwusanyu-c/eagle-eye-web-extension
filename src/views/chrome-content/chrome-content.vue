@@ -209,8 +209,6 @@
   #beosin_eagle_eye_dialog {
     position: fixed;
     z-index: 198910146;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace sans-serif;
   }
 
   .eagle-eye-dialog .be-button__mini {
@@ -222,15 +220,14 @@
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 32px;
+    left: 32px;
     display: flex;
     margin-bottom: 16px;
     -webkit-box-pack: start;
     justify-content: flex-start;
     height: 30px;
     align-items: center;
-    font-family: inherit;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title h2 {
@@ -238,7 +235,6 @@
     line-height: 32px;
     font-weight: 700;
     color: #303133;
-    font-family: inherit;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -257,8 +253,8 @@
     font-size: 48px;
     line-height: 60px;
     font-weight: bold;
-    font-family: inherit;
-    text-align: center;
+    text-align: left;
+    padding-left: 16px;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info {
@@ -272,14 +268,12 @@
     margin-top: 0;
     margin-bottom: 16px;
     color: #1d263b;
-    font-family: inherit;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info span {
     background-color: #e6e3e3;
     padding: 0 4px;
     border-radius: 2px;
-    font-family: inherit;
   }
   #beosin_eagle_eye_dialog .be-dialog .be-dialog--container .be-dialog--footer__right {
     align-items: flex-end;
@@ -297,7 +291,7 @@
     line-height: 50px;
     font-size: 14px;
     font-weight: bold;
-    font-family: inherit;
+
     margin-right: 16px;
   }
 
@@ -310,7 +304,6 @@
   #beosin_eagle_eye_dialog .be-dialog--container__head span {
     font-size: 24px;
     line-height: 32px;
-    font-family: inherit;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye--popup__footer {
@@ -329,9 +322,11 @@
   #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--title {
     border-radius: 16px;
   }
-  #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--body,
+  #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--body {
+    padding: 16px 32px;
+  }
   #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--footer {
-    padding: 16px 20px;
+    padding: 16px 32px 32px 32px;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn {
     box-sizing: border-box;
@@ -342,8 +337,8 @@
     background: #1cd2a9;
     opacity: 1;
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 32px;
+    bottom: 32px;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
     font-size: 18px;
@@ -351,6 +346,7 @@
     margin-top: 0 !important;
     color: #ffffff;
     outline: 0;
+    font-weight: bold;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn:hover,
   #beosin_eagle_eye_dialog .eagle-confirm--btn:focus {
@@ -387,6 +383,8 @@
   }
   #beosin_eagle_eye_dialog .be-dialog--icon__close {
     line-height: 32px;
+    margin-top: 12px;
+    margin-right: 6px;
   }
   .eagle-eye-dialog--info {
     margin-bottom: 0 !important;
@@ -396,7 +394,7 @@
     color: #1d263b;
   }
 
-  /* 125% 适配 */
+  /* 适配 */
   @media screen and (min-width: 100px) and (max-width: 1000px) {
     #beosin_eagle_eye_dialog .be-dialog--container {
       width: 500px;
