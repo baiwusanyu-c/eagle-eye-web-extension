@@ -317,7 +317,10 @@
     height: 400px;
     background-image: url('../src/assets/img/heck.png');
     min-width: initial;
-    border-radius: 4px;
+    border-radius: 16px;
+  }
+  #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--title {
+    border-radius: 16px;
   }
   #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--body,
   #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--footer {

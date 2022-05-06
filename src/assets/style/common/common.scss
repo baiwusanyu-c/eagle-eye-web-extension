@@ -24,20 +24,6 @@ input:focus-visible {
   outline: 0;
 }
 
-.line {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  padding-right: calc(100% - 3px);
-  padding-left: calc(100% - 3px);
-  background-color: $infoHover;
-}
-
-.ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 @mixin font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
