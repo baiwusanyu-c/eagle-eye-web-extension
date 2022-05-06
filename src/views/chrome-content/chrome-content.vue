@@ -1,5 +1,5 @@
 <script lang="tsx">
-  import { defineComponent, ref } from 'vue'
+  import { defineComponent, nextTick, ref } from 'vue'
   import { debounce } from 'lodash-es'
   import { ANALYSIS_RES, MESSAGE_TYPES } from '@/enums'
   import { getHost } from '@/utils/common'
@@ -7,6 +7,7 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
+  import { analysisUrl } from '@/api/analysis'
 
   export default defineComponent({
     setup() {
@@ -16,7 +17,7 @@
       }
       // 获取js的请求信息
       const infos = ref<Array<string>>([])
-      const { getItem } = useStorage()
+      const { getItem, setItem } = useStorage()
       /**
        * 分析网站
        */
@@ -91,7 +92,7 @@
         source_name: '',
         source_url: '',
       })
-      const analysisPhishingSite = (): void => {
+      const analysisPhishingSite = async () => {
         if (!isWeb3.value) return
         // 发送给background调取接口
         const host = getHost()
@@ -101,7 +102,6 @@
         })
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request): void => {
-          console.log(request)
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
             const res = request.data.data
             if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
@@ -117,7 +117,14 @@
       }
 
       // 开始分析
-      analysisWebSite()
+      nextTick(() => {
+        getItem(CACHE_KEYS.IS_OPEN).then(res => {
+          if ((res && res === 'true') || res === undefined) {
+            setItem(CACHE_KEYS.IS_OPEN, 'true')
+            analysisWebSite()
+          }
+        })
+      })
       chrome.runtime.onMessage.addListener(request => {
         // 接收 是否设置插件开启
         if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
