@@ -9,6 +9,7 @@ import config from '../enums/config'
 // 获取路由信息
 export interface IAnalysis {
   url: string
+  is_web3: boolean
 }
 
 export async function analysisUrl(params: IAnalysis) {

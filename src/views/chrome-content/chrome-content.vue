@@ -93,15 +93,14 @@
         source_url: '',
       })
       const analysisPhishingSite = async () => {
-        if (!isWeb3.value) return
         // 发送给background调取接口
         const host = getHost()
         chrome.runtime.sendMessage({
           type: MESSAGE_TYPES.GET_ANALYSIS_RES,
-          data: { host, isWeb3: isWeb3.value },
+          data: { host, is_web3: isWeb3.value },
         })
         // 接收background调取接口的结果
-        chrome.runtime.onMessage.addListener((request): void => {
+        chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
             const res = request.data.data
             if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
@@ -125,7 +124,8 @@
           }
         })
       })
-      chrome.runtime.onMessage.addListener(request => {
+      chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        sendResponse()
         // 接收 是否设置插件开启
         if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
           analysisWebSite()
