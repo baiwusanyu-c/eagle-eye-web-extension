@@ -1,32 +1,40 @@
+import type { IAnalysis } from '@/api/analysis'
 import { MESSAGE_TYPES } from '@/enums'
-
-async function r() {
+import { analysisUrl } from '@/api/analysis'
+async function getAnalysis(params: IAnalysis) {
   const tabId = await getCurrentTabId()
-  fetch('http://124.71.132.90:9527/beosin-meta/menu/routers?systemCode=beosin-eye', {
-    headers: { 'Content-Type': 'application/json; charset=UTF-8' },
-    method: 'GET',
-  })
-    .then(t => {
-      return t.json()
-    })
-    .then(res => {
-      chrome.tabs.sendMessage(Number(tabId), res)
-    })
-    .catch((err: Error) => {
-      console.error(err)
-    })
+  const res = await analysisUrl(params)
+  chrome.tabs.sendMessage(Number(tabId), { type: MESSAGE_TYPES.ANALYSIS_RES, data: res })
 }
 
-chrome.runtime.onMessage.addListener(request => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  sendResponse('background')
   // content 载入时调用
   // 分析网站是否为钓鱼
   if (request.type === MESSAGE_TYPES.GET_ANALYSIS_RES) {
-    r()
+    getAnalysis({ url: request.data.host, is_web3: request.data.is_web3 })
+    return
+  }
+  // 接收 是否设置插件开启
+  if (request.type === MESSAGE_TYPES.SET_SWITCH) {
+    informAnalysis()
+    // 中转消息
+    return
   }
 })
 
-async function getCurrentTabId() {
+async function informAnalysis() {
+  const tabId = await getCurrentTabId()
+  if (!tabId) return
+  // 发送给当前激活的 tab
+  chrome.tabs.sendMessage(Number(tabId), { type: MESSAGE_TYPES.INFORM_ANALYSIS })
+}
+
+export async function getCurrentTabId() {
   const queryOptions = { active: true, currentWindow: true }
   const [tab] = await chrome.tabs.query(queryOptions)
-  return tab.id
+  if (tab && tab.id) {
+    return tab.id
+  }
+  return 0
 }

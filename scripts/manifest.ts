@@ -8,11 +8,14 @@ function getManifest(): Manifest.WebExtensionManifest {
   // can also be conditional based on your need
   return {
     manifest_version: 3,
-    name: pkg.name,
+    name: 'Beosin-Eagle-Eye',
     version: pkg.version,
     description: pkg.description,
     action: {
-      default_icon: './ui/favicon.ico',
+      default_icon: {
+        '19': './ui/favicon_16.png',
+        '38': './ui/favicon_32.png',
+      },
       default_popup: './ui/popup.html',
     },
     options_ui: {
@@ -38,8 +41,17 @@ function getManifest(): Manifest.WebExtensionManifest {
         description: 'Opens hello.html',
       },
     },
-    host_permissions: ['http://*/', 'https://*/', 'chrome://', 'edge://'],
+    host_permissions: ['*://*/*'],
     permissions: ['tabs', 'storage', 'activeTab', 'scripting'],
+    homepage_url: 'https://eagleeye.beosin.com/',
+    // TODO
+    //default_locale: "en",
+    icons: {
+      '128': './ui/favicon_128.png',
+      '16': './ui/favicon_16.png',
+      '32': './ui/favicon_32.png',
+      '64': './ui/favicon_64.png',
+    },
   }
 }
 
