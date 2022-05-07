@@ -45,6 +45,7 @@ specifiers:
   typescript: ^4.6.3
   unplugin-vue-components: ^0.19.3
   vite: ^2.9.5
+  vite-plugin-svg-transform-script: ^1.1.0
   vite-plugin-windicss: ^1.8.4
   vue: ^3.2.33
   vue-tsc: ^0.34.9
@@ -59,6 +60,7 @@ dependencies:
   element-plus: registry.npmjs.org/element-plus/2.1.8_dc3f4132bdea8e35f7978829bd71373e
   lodash-es: 4.17.21
   qs: registry.npmjs.org/qs/6.10.3
+  vite-plugin-svg-transform-script: registry.npmjs.org/vite-plugin-svg-transform-script/1.1.0
   vue: registry.npmjs.org/vue/3.2.33
 
 devDependencies:
@@ -10241,6 +10243,17 @@ packages:
       spdx-correct: registry.npmjs.org/spdx-correct/3.1.1
       spdx-expression-parse: registry.npmjs.org/spdx-expression-parse/3.0.1
     dev: true
+
+  registry.npmjs.org/vite-plugin-svg-transform-script/1.1.0:
+    resolution:
+      {
+        integrity: sha512-/vnkTYRcowaZ6NdkJVLmh22ERKyqhuEsS3+udlB9PVIAcJQ7CqVf2gE3h7K1maQGkNRB5rkHBxySiVu36ngpFA==,
+        registry: https://registry.npmjs.com/,
+        tarball: https://registry.npmjs.org/vite-plugin-svg-transform-script/-/vite-plugin-svg-transform-script-1.1.0.tgz,
+      }
+    name: vite-plugin-svg-transform-script
+    version: 1.1.0
+    dev: false
 
   registry.npmjs.org/vite-plugin-windicss/1.8.4_vite@2.9.5:
     resolution:

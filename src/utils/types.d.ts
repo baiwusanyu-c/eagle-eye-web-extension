@@ -16,13 +16,6 @@ declare namespace Config {
   }
 }
 
-/*declare namespace Config {
-  interface ConfigItem {
-    value: boolean | number
-    label: string
-    description?: string
-  }
-}*/
 export interface IOption {
   [key: string]: any
 }

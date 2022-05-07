@@ -19,5 +19,12 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "scripts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "scripts",
+    "node_modules/.pnpm/@types+chrome@0.0.173/node_modules/@types/chrome/index.d.ts"
+  ]
 }
