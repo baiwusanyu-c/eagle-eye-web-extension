@@ -132,7 +132,6 @@
         }
       })
       const { openWindow } = useCommon()
-
       return {
         analysisRes,
         showMsg,
@@ -156,10 +155,10 @@
         </div>
         <div class="eagle-eye-dialog--body__info">
           <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            The current Web3 site may be <span class="font-alibaba">fake or phishing.</span>
+            The current site may be <span class="font-alibaba">fake or phishing.</span>
           </p>
           <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            It could be steal your <span class="font-alibaba"> private keys and funds.</span>
+            It could steal your <span class="font-alibaba"> private keys and funds.</span>
           </p>
           <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
             Please stay vigilant!
@@ -171,7 +170,7 @@
     <template #footer>
       <div class="eagle-eye-dialog--body__footer">
         <div class="eagle-eye--popup__footer">
-          <span class="logo font-alibaba eagle-eye-dialog--text">© Beosin</span>
+          <span class="beosin-eagle-eye-logo font-alibaba eagle-eye-dialog--text">© Beosin</span>
           <be-icon
             custom-class="eagle-twitter--icon"
             icon="iconTwitter"
@@ -287,7 +286,7 @@
     flex-direction: column;
   }
 
-  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .logo {
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .beosin-eagle-eye-logo {
     line-height: 50px;
     font-size: 14px;
     font-weight: bold;
@@ -371,7 +370,10 @@
   #beosin_eagle_eye_dialog .eagle-eye-dialog--title img {
     margin-right: 16px;
   }
-
+  #beosin_eagle_eye_dialog .eagle-eye-dialog--title img {
+    width: 32px;
+    height: 32px;
+  }
   #beosin_eagle_eye_dialog .eagle-warning--icon .be-icon {
     height: 64px;
     width: 64px;
@@ -380,6 +382,8 @@
     position: absolute;
     top: 43px;
     right: 46px;
+    width: 320px;
+    height: 320px;
   }
   #beosin_eagle_eye_dialog .be-dialog--icon__close {
     line-height: 32px;
@@ -408,7 +412,7 @@
       line-height: 40px;
       font-size: 32px;
     }
-    #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .logo {
+    #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .beosin-eagle-eye-logo {
       line-height: 24px;
     }
     #beosin_eagle_eye_dialog .be-dialog--container .be-dialog--footer {
