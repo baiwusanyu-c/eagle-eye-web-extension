@@ -31,7 +31,7 @@
             // 判断是否Web3
             isWeb3WebSite()
             // 分析钓鱼
-            // analysisPhishingSite()
+            analysisPhishingSite()
           } else {
             observer?.disconnect()
           }
