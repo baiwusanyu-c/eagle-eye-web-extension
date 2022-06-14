@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // content 载入时调用
   // 分析网站是否为钓鱼
   if (request.type === MESSAGE_TYPES.GET_ANALYSIS_RES) {
-    getAnalysis({ url: request.data.host, is_web3: request.data.is_web3 })
+    getAnalysis({ url: request.data.host, web3_flag: request.data.web3_flag })
     return
   }
   // 接收 是否设置插件开启

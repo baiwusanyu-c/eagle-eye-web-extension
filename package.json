@@ -1,7 +1,7 @@
 {
   "name": "eagle-eye-web-extension",
   "description": "基于谷歌内核的态势感知浏览器插件扩展",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "public": true,
   "scripts": {
     "server:dev": "pnpm run server:manifest && run-p server:dev:*",
