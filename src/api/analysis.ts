@@ -13,8 +13,8 @@ export interface IAnalysis {
 }
 
 export async function analysisUrl(params: IAnalysis) {
-  const res = await request(`${config.baseURL}/ussa/public/plugin/risk_url/check`, {
-    method: 'GET',
+  const res = await request(`${config.baseURL}/ussa/public/plugin/risk_url/verify`, {
+    method: 'POST',
     params,
   })
   return res

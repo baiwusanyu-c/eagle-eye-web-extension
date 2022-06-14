@@ -7,8 +7,6 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
-  import { analysisUrl } from '@/api/analysis'
-
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
