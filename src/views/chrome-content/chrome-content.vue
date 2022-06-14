@@ -7,8 +7,6 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
-  import { analysisUrl } from '@/api/analysis'
-
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -31,7 +29,7 @@
             // 判断是否Web3
             isWeb3WebSite()
             // 分析钓鱼
-            // analysisPhishingSite()
+            analysisPhishingSite()
           } else {
             observer?.disconnect()
           }
@@ -97,11 +95,12 @@
         const host = getHost()
         chrome.runtime.sendMessage({
           type: MESSAGE_TYPES.GET_ANALYSIS_RES,
-          data: { host, is_web3: isWeb3.value },
+          data: { host, web3_flag: isWeb3.value },
         })
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
+            console.log(request.data.data)
             const res = request.data.data
             if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
               analysisRes.value.source_name = res.source_name
@@ -112,6 +111,7 @@
               observer?.disconnect()
             }
           }
+          sendResponse()
         })
       }
 

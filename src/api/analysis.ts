@@ -9,12 +9,12 @@ import config from '../enums/config'
 // 获取路由信息
 export interface IAnalysis {
   url: string
-  is_web3: boolean
+  web3_flag: boolean
 }
 
 export async function analysisUrl(params: IAnalysis) {
-  const res = await request(`${config.baseURL}/ussa/public/plugin/risk_url/check`, {
-    method: 'GET',
+  const res = await request(`${config.baseURL}/ussa/public/plugin/risk_url/verify`, {
+    method: 'POST',
     params,
   })
   return res

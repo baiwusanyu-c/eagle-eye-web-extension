@@ -42,7 +42,7 @@ function getManifest(): Manifest.WebExtensionManifest {
       },
     },
     host_permissions: ['*://*/*'],
-    permissions: ['tabs', 'storage', 'activeTab', 'scripting'],
+    permissions: ['storage', 'activeTab'],
     homepage_url: 'https://eagleeye.beosin.com/',
     // TODO
     //default_locale: "en",
