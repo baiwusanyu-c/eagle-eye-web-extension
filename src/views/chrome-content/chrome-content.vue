@@ -147,20 +147,22 @@
     <div>
       <div class="eagle-eye-dialog--title">
         <img alt="" src="../../../public/favicon_32.png" />
-        <h2 class="font-alibaba eagle-eye-dialog--text">Beosin Alert</h2>
+        <h2 class="font-barlow-semi-condensed eagle-eye-dialog--text">Beosin Alert</h2>
       </div>
       <div>
         <div class="eagle-eye-dialog--body__icon">
-          <h1 class="font-alibaba eagle-eye-dialog--text">Malicious Website!</h1>
+          <h1 class="font-barlow-semi-condensed eagle-eye-dialog--text">Malicious Website!</h1>
         </div>
         <div class="eagle-eye-dialog--body__info">
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            The current site may be <span class="font-alibaba">fake or phishing.</span>
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
+            The current site may be
+            <span class="font-barlow-semi-condensed">fake or phishing.</span>
           </p>
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            It could steal your <span class="font-alibaba"> private keys and funds.</span>
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
+            It could steal your
+            <span class="font-barlow-semi-condensed"> private keys and funds.</span>
           </p>
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
             Please stay vigilant!
           </p>
         </div>
@@ -170,7 +172,9 @@
     <template #footer>
       <div class="eagle-eye-dialog--body__footer">
         <div class="eagle-eye--popup__footer">
-          <span class="beosin-eagle-eye-logo font-alibaba eagle-eye-dialog--text">© Beosin</span>
+          <span class="beosin-eagle-eye-logo font-barlow-semi-condensed eagle-eye-dialog--text"
+            >© Beosin</span
+          >
           <be-icon
             custom-class="eagle-twitter--icon"
             icon="iconTwitter"
@@ -182,11 +186,11 @@
         </div>
         <p
           v-if="analysisRes.source_name"
-          class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--source">
+          class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--source">
           Thanks to
           <a
             :href="`https://${analysisRes.source_url}`"
-            class="font-alibaba"
+            class="font-barlow-semi-condensed"
             style="text-decoration: underline; font-weight: bold"
             target="_blank"
             >{{ analysisRes.source_name }}</a
@@ -196,10 +200,10 @@
       </div>
       <be-button
         type="success"
-        custom-class="eagle-confirm--btn font-alibaba"
+        custom-class="eagle-confirm--btn font-barlow-semi-condensed"
         round="8"
         @click="showMsg = false">
-        <p class="font-alibaba">Got it</p>
+        <p class="font-barlow-semi-condensed">Got it</p>
       </be-button>
     </template>
   </be-dialog>
