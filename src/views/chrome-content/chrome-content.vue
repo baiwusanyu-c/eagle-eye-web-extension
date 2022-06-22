@@ -97,10 +97,10 @@
           type: MESSAGE_TYPES.GET_ANALYSIS_RES,
           data: { host, web3_flag: isWeb3.value },
         })
+
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            console.log(request.data.data)
             const res = request.data.data
             if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
               analysisRes.value.source_name = res.source_name
@@ -253,9 +253,9 @@
   }
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
     color: white;
-    font-size: 48px;
     line-height: 60px;
-    font-weight: bold;
+    font-weight: bold !important;
+    font-size: 48px !important;
     text-align: left;
     padding-left: 16px;
   }
@@ -266,7 +266,7 @@
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info p {
     text-align: left;
-    font-size: 16px;
+    font-size: 16px !important;
     line-height: 28px;
     margin-top: 0;
     margin-bottom: 16px;
@@ -344,12 +344,12 @@
     bottom: 32px;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
-    font-size: 18px;
+    font-size: 18px !important;
     margin-bottom: 0 !important;
     margin-top: 0 !important;
     color: #ffffff;
     outline: 0;
-    font-weight: bold;
+    font-weight: bold !important;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn:hover,
   #beosin_eagle_eye_dialog .eagle-confirm--btn:focus {
@@ -413,8 +413,8 @@
       margin-bottom: 22px;
     }
     #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
-      line-height: 40px;
-      font-size: 32px;
+      line-height: 40px !important;
+      font-size: 32px !important;
     }
     #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .beosin-eagle-eye-logo {
       line-height: 24px;

@@ -12,7 +12,7 @@ $componentsClass:null;
   src: url('../../font/BarlowSemiCondensed-Bold.otf') format('truetype');
 }
 .font-barlow-semi-condensed{
-  font-family: BarlowSemiCondensed-Regular BarlowSemiCondensed-Bold sans-serif;
+  font-family: BarlowSemiCondensed-Regular BarlowSemiCondensed-Bold sans-serif !important;
 }
 
 
