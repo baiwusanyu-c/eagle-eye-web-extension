@@ -6,7 +6,6 @@
   import useCommon from '@/hooks/use-common'
   const isOpen = ref<string>('true')
   const { getItem, setItem } = useStorage()
-  debugger
   nextTick(() => {
     getItem(CACHE_KEYS.IS_OPEN).then(res => {
       if (res && res === 'true') {
@@ -29,7 +28,6 @@
     })
   }
   const { openWindow } = useCommon()
-  debugger
 </script>
 
 <template>

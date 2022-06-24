@@ -7,6 +7,7 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
+  import { observerByBody } from '@/views/chrome-content/main'
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -132,7 +133,15 @@
         }
       })
       const { openWindow } = useCommon()
+      /**
+       * 关闭方法
+       */
+      const close = (): void => {
+        showMsg.value = false
+        observerByBody.disconnect()
+      }
       return {
+        close,
         analysisRes,
         showMsg,
         infos,
@@ -143,7 +152,7 @@
   })
 </script>
 <template>
-  <be-dialog v-model:is-show="showMsg" titles=" " layout="right">
+  <be-dialog v-model:is-show="showMsg" titles=" " layout="right" @click="close">
     <div>
       <div class="eagle-eye-dialog--title">
         <img alt="" src="../../../public/favicon_32.png" />
@@ -210,6 +219,7 @@
 </template>
 <style>
   #beosin_eagle_eye_dialog {
+    text-shadow: none !important;
     position: fixed;
     z-index: 198910146;
   }
@@ -258,6 +268,7 @@
     font-size: 48px !important;
     text-align: left;
     padding-left: 16px;
+    text-transform: initial !important;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info {
@@ -342,6 +353,8 @@
     position: absolute;
     right: 32px;
     bottom: 32px;
+    box-shadow: none !important;
+    filter: none !important;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
     font-size: 18px !important;
@@ -393,6 +406,9 @@
     line-height: 32px;
     margin-top: 12px;
     margin-right: 6px;
+  }
+  #beosin_eagle_eye_dialog .be-dialog--icon__close .be-icon use {
+    fill: rgb(29, 38, 59);
   }
   .eagle-eye-dialog--info {
     margin-bottom: 0 !important;
