@@ -69,7 +69,8 @@ const setContentType = (config?: IReqConfig): string => {
   if (config && config['Content-Type'] !== undefined) {
     return config['Content-Type']
   } else if (config && config.method === HttpMethod.post) {
-    return ContentType.form
+    // return ContentType.form
+    return ContentType.json
   } else {
     return ContentType.json
   }
@@ -108,7 +109,7 @@ async function sendRequest(url: string, headers: Headers, config: IReqConfig) {
     return res
   } else if (config.method === HttpMethod.post) {
     const res = await fetch(url, {
-      body: Qs.stringify(config.params), //设置参数
+      body: JSON.stringify(config.params), //设置参数
       headers,
       method: HttpMethod.post,
     })

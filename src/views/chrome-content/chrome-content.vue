@@ -7,8 +7,7 @@
   import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
   import useCommon from '@/hooks/use-common'
   import { SOCIAL_LINK } from '@/enums/link'
-  import { analysisUrl } from '@/api/analysis'
-
+  import { observerByBody } from '@/views/chrome-content/main'
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -31,7 +30,7 @@
             // 判断是否Web3
             isWeb3WebSite()
             // 分析钓鱼
-            // analysisPhishingSite()
+            analysisPhishingSite()
           } else {
             observer?.disconnect()
           }
@@ -97,8 +96,9 @@
         const host = getHost()
         chrome.runtime.sendMessage({
           type: MESSAGE_TYPES.GET_ANALYSIS_RES,
-          data: { host, is_web3: isWeb3.value },
+          data: { host, web3_flag: isWeb3.value },
         })
+
         // 接收background调取接口的结果
         chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
@@ -112,6 +112,7 @@
               observer?.disconnect()
             }
           }
+          sendResponse()
         })
       }
 
@@ -132,7 +133,15 @@
         }
       })
       const { openWindow } = useCommon()
+      /**
+       * 关闭方法
+       */
+      const close = (): void => {
+        showMsg.value = false
+        observerByBody.disconnect()
+      }
       return {
+        close,
         analysisRes,
         showMsg,
         infos,
@@ -143,24 +152,26 @@
   })
 </script>
 <template>
-  <be-dialog v-model:is-show="showMsg" titles=" " layout="right">
+  <be-dialog v-model:is-show="showMsg" titles=" " layout="right" @click="close">
     <div>
       <div class="eagle-eye-dialog--title">
         <img alt="" src="../../../public/favicon_32.png" />
-        <h2 class="font-alibaba eagle-eye-dialog--text">Beosin Alert</h2>
+        <h2 class="font-barlow-semi-condensed eagle-eye-dialog--text">Beosin Alert</h2>
       </div>
       <div>
         <div class="eagle-eye-dialog--body__icon">
-          <h1 class="font-alibaba eagle-eye-dialog--text">Malicious Website!</h1>
+          <h1 class="font-barlow-semi-condensed eagle-eye-dialog--text">Malicious Website!</h1>
         </div>
         <div class="eagle-eye-dialog--body__info">
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            The current site may be <span class="font-alibaba">fake or phishing.</span>
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
+            The current site may be
+            <span class="font-barlow-semi-condensed">fake or phishing.</span>
           </p>
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
-            It could steal your <span class="font-alibaba"> private keys and funds.</span>
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
+            It could steal your
+            <span class="font-barlow-semi-condensed"> private keys and funds.</span>
           </p>
-          <p class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--info">
+          <p class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--info">
             Please stay vigilant!
           </p>
         </div>
@@ -170,7 +181,9 @@
     <template #footer>
       <div class="eagle-eye-dialog--body__footer">
         <div class="eagle-eye--popup__footer">
-          <span class="beosin-eagle-eye-logo font-alibaba eagle-eye-dialog--text">© Beosin</span>
+          <span class="beosin-eagle-eye-logo font-barlow-semi-condensed eagle-eye-dialog--text"
+            >© Beosin</span
+          >
           <be-icon
             custom-class="eagle-twitter--icon"
             icon="iconTwitter"
@@ -182,11 +195,11 @@
         </div>
         <p
           v-if="analysisRes.source_name"
-          class="font-alibaba eagle-eye-dialog--text eagle-eye-dialog--source">
+          class="font-barlow-semi-condensed eagle-eye-dialog--text eagle-eye-dialog--source">
           Thanks to
           <a
             :href="`https://${analysisRes.source_url}`"
-            class="font-alibaba"
+            class="font-barlow-semi-condensed"
             style="text-decoration: underline; font-weight: bold"
             target="_blank"
             >{{ analysisRes.source_name }}</a
@@ -196,16 +209,17 @@
       </div>
       <be-button
         type="success"
-        custom-class="eagle-confirm--btn font-alibaba"
+        custom-class="eagle-confirm--btn font-barlow-semi-condensed"
         round="8"
         @click="showMsg = false">
-        <p class="font-alibaba">Got it</p>
+        <p class="font-barlow-semi-condensed">Got it</p>
       </be-button>
     </template>
   </be-dialog>
 </template>
 <style>
   #beosin_eagle_eye_dialog {
+    text-shadow: none !important;
     position: fixed;
     z-index: 198910146;
   }
@@ -249,11 +263,12 @@
   }
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
     color: white;
-    font-size: 48px;
     line-height: 60px;
-    font-weight: bold;
+    font-weight: bold !important;
+    font-size: 48px !important;
     text-align: left;
     padding-left: 16px;
+    text-transform: initial !important;
   }
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info {
@@ -262,7 +277,7 @@
 
   #beosin_eagle_eye_dialog .eagle-eye-dialog--body__info p {
     text-align: left;
-    font-size: 16px;
+    font-size: 16px !important;
     line-height: 28px;
     margin-top: 0;
     margin-bottom: 16px;
@@ -338,14 +353,16 @@
     position: absolute;
     right: 32px;
     bottom: 32px;
+    box-shadow: none !important;
+    filter: none !important;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn p {
-    font-size: 18px;
+    font-size: 18px !important;
     margin-bottom: 0 !important;
     margin-top: 0 !important;
     color: #ffffff;
     outline: 0;
-    font-weight: bold;
+    font-weight: bold !important;
   }
   #beosin_eagle_eye_dialog .eagle-confirm--btn:hover,
   #beosin_eagle_eye_dialog .eagle-confirm--btn:focus {
@@ -390,6 +407,9 @@
     margin-top: 12px;
     margin-right: 6px;
   }
+  #beosin_eagle_eye_dialog .be-dialog--icon__close .be-icon use {
+    fill: rgb(29, 38, 59);
+  }
   .eagle-eye-dialog--info {
     margin-bottom: 0 !important;
   }
@@ -409,8 +429,8 @@
       margin-bottom: 22px;
     }
     #beosin_eagle_eye_dialog .eagle-eye-dialog--body__icon h1 {
-      line-height: 40px;
-      font-size: 32px;
+      line-height: 40px !important;
+      font-size: 32px !important;
     }
     #beosin_eagle_eye_dialog .eagle-eye-dialog--body__footer .beosin-eagle-eye-logo {
       line-height: 24px;
