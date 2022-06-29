@@ -5,7 +5,6 @@
   import { LINK, SOCIAL_LINK } from '@/enums/link'
   import useCommon from '@/hooks/use-common'
   const isOpen = ref<string>('true')
-
   const { getItem, setItem } = useStorage()
   nextTick(() => {
     getItem(CACHE_KEYS.IS_OPEN).then(res => {
@@ -35,10 +34,10 @@
   <div class="eagle-eye--popup relative">
     <div class="flex justify-start h-30px mb-12">
       <img alt="" src="../../../public/favicon_32.png" class="mr-4" />
-      <h2 class="text-2xl font-bold font-alibaba">Beosin Alert</h2>
+      <h2 class="text-2xl font-bold font-barlow-semi-condensed">Beosin Alert</h2>
     </div>
     <div class="w-full h-300px">
-      <h2 class="text-3xl mb-8 font-alibaba font-bold">Open Beosin Alert</h2>
+      <h2 class="text-3xl mb-8 font-barlow-semi-condensed font-bold">Open Beosin Alert</h2>
       <be-switch
         v-model="isOpen"
         checked-value="true"
@@ -46,7 +45,9 @@
         un-checked-value="false"
         @change="handleChange">
       </be-switch>
-      <p class="text-base mb-4 mt-16 font-alibaba">Submit Malicious website or message？</p>
+      <p class="text-base mb-4 mt-16 font-barlow-semi-condensed">
+        Submit Malicious website or message？
+      </p>
       <a
         style="border-radius: 8px"
         class="text-base font-bold pointer-events-auto text-mainG border border-mainG w-140px h-44px block text-center leading-44px"

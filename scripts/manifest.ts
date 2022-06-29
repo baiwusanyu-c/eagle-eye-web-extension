@@ -8,7 +8,7 @@ function getManifest(): Manifest.WebExtensionManifest {
   // can also be conditional based on your need
   return {
     manifest_version: 3,
-    name: 'Beosin-Eagle-Eye',
+    name: 'Beosin Alert',
     version: pkg.version,
     description: pkg.description,
     action: {

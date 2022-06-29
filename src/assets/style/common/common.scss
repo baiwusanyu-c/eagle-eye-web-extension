@@ -3,16 +3,16 @@
 @import "mixin";
 $componentsClass:null;
 @font-face {
-  font-family: AlibabaPuHuiTi-Regular;
-  src: url('../../font/Alibaba-PuHuiTi-Regular.ttf') format('truetype');
+  font-family: BarlowSemiCondensed-Regular;
+  src: url('../../font/BarlowSemiCondensed-Regular.otf') format('truetype');
 }
 
 @font-face {
-  font-family: AlibabaPuHuiTi-Medium;
-  src: url('../../font/Alibaba-PuHuiTi-Medium.ttf') format('truetype');
+  font-family: BarlowSemiCondensed-Bold;
+  src: url('../../font/BarlowSemiCondensed-Bold.otf') format('truetype');
 }
-.font-alibaba{
-  font-family: AlibabaPuHuiTi-Regular AlibabaPuHuiTi-Medium sans-serif;
+.font-barlow-semi-condensed{
+  font-family: BarlowSemiCondensed-Regular BarlowSemiCondensed-Bold sans-serif !important;
 }
 
 
