@@ -5,11 +5,6 @@ import { r } from './scripts/util'
 // https://vitejs.dev/config/
 export default defineConfig({
   publicDir: false,
-  resolve: {
-    alias: {
-      '@': r('src'),
-    },
-  },
   // 指定环境变量文件路径
   envDir: './env/',
   build: {

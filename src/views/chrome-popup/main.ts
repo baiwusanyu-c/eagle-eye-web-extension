@@ -6,7 +6,7 @@ import 'virtual:windi.css'
 import svgDict from '../../utils/svg-dict'
 // @ts-ignore
 import BeUI from '../../../public/be-ui/be-ui.es.js'
-import Popup from '@/views/chrome-popup/chrome-popup.vue'
+import Popup from '../../views/chrome-popup/chrome-popup.vue'
 /**
  * 初始化图标，生成svgDom
  */
