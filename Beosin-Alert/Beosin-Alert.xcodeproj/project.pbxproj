@@ -19,6 +19,8 @@
 		04755F2128867BE80062700B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F2028867BE80062700B /* SafariWebExtensionHandler.swift */; };
 		04755F2428867BE80062700B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2328867BE80062700B /* _locales */; };
 		04755F2828867BE80062700B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2728867BE80062700B /* manifest.json */; };
+		04755F3F28869C0D0062700B /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 04755F3E28869C0D0062700B /* dist */; };
+		04755F432886A4570062700B /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 04755F422886A4570062700B /* dist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		04755F2728867BE80062700B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		04755F3328867BE80062700B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04755F3428867BE80062700B /* Beosin_Alert_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Beosin_Alert_Extension.entitlements; sourceTree = "<group>"; };
+		04755F3E28869C0D0062700B /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		04755F422886A4570062700B /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = "Beosin-Alert Extension/Resources/dist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		04755EF628867BE60062700B = {
 			isa = PBXGroup;
 			children = (
+				04755F422886A4570062700B /* dist */,
 				04755F0128867BE60062700B /* Beosin-Alert */,
 				04755F1F28867BE80062700B /* Beosin-Alert Extension */,
 				04755F0028867BE60062700B /* Products */,
@@ -140,6 +145,7 @@
 		04755F2228867BE80062700B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04755F3E28869C0D0062700B /* dist */,
 				04755F2328867BE80062700B /* _locales */,
 				04755F2728867BE80062700B /* manifest.json */,
 			);
@@ -233,6 +239,7 @@
 				04755F0728867BE60062700B /* Main.html in Resources */,
 				04755F1428867BE80062700B /* Assets.xcassets in Resources */,
 				04755F0B28867BE60062700B /* Style.css in Resources */,
+				04755F3F28869C0D0062700B /* dist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04755F432886A4570062700B /* dist in Resources */,
 				04755F2828867BE80062700B /* manifest.json in Resources */,
 				04755F2428867BE80062700B /* _locales in Resources */,
 			);
