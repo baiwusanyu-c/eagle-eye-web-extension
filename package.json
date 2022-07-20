@@ -31,18 +31,14 @@
     ]
   },
   "dependencies": {
-    "@types/lodash-es": "^4.17.5",
-    "@types/qs": "^6.9.7",
-    "@vueuse/core": "^8.3.1",
-    "axios": "^0.24.0",
-    "element-plus": "2.1.8",
     "lodash-es": "^4.17.21",
     "qs": "^6.10.1",
     "vite-plugin-svg-transform-script": "^1.1.0",
     "vue": "^3.2.33"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1",
+    "@types/lodash-es": "^4.17.5",
+    "@types/qs": "^6.9.7",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
     "@babel/preset-env": "^7.16.0",

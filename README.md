@@ -5,21 +5,17 @@
 #eagle-eye-front 态势感知谷歌浏览器插件 ##主要技術依賴
 **Vue3.2 + Vite2.x + typeScript4.5**
 
-| 名称         | 版本    | 説明                             |
-| ------------ | ------- | -------------------------------- |
-| Vue          | ^3.2.3  | 前端開發框架                     |
-| axios        | ^0.24.0 | Ajax 封裝庫                      |
-| vite         | ^2.9.x  | 工程化開發打包框架               |
-| vue-i18n     | 9       | vue3.x 國際化插件                |
-| @vueuse/core | ^7.3.0  | vue3.x 的 composition Api 方法庫 |
-| windi.css    | ^3.4.3  | css 原子化樣式庫                 |
-| element-plus | ^2.22.0 | UI 組件庫                        |
-| be-ui        | -       | 内部 UI 組件庫                   |
+| 名称      | 版本   | 説明               |
+| --------- | ------ | ------------------ |
+| Vue       | ^3.2.3 | 前端開發框架       |
+| vite      | ^2.9.x | 工程化開發打包框架 |
+| windi.css | ^3.4.3 | css 原子化樣式庫   |
+| be-ui     | -      | 内部 UI 組件庫     |
 
 ##package 指令
 
-`dev": "run-p dev:*`  
-**一键开发启动**
+`chrome:dev:popup`  
+**开发启动 chrome popup**
 
 `"dev:web": "vue-tsc --noEmit && vite build --watch --mode=development"`  
 **开发启动 web，它会打包一个多页面应用，对应谷歌插件的 popup 页面与 option 页面**
