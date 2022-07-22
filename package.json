@@ -4,21 +4,14 @@
   "version": "1.0.3",
   "public": true,
   "scripts": {
-    "chrome:dev:popup": "esno  ./scripts/browser.js chrome && vite build --watch --mode=development",
-    "chrome:dev:background": "esno  ./scripts/browser.js chrome && vite build --watch --mode=development --config vite-background.config.ts",
-    "chrome:dev:content": "esno  ./scripts/browser.js chrome && vite build --watch --mode=development --config vite-content.config.ts",
-    "chrome:manifest": "esno ./scripts/manifest-chrome.js",
-    "safari:dev:popup": "esno  ./scripts/browser.js safari && vite build --watch --mode=development",
-    "safari:prod:background": "esno  ./scripts/browser.js safari && vite build --watch --mode=production --config vite-background.config.ts",
-    "safari:prod:content": "esno  ./scripts/browser.js safari && vite build --watch --mode=production --config vite-content.config.ts",
-    "safari:manifest": "esno ./scripts/manifest-safari.js",
+    "chrome:dev": "gulp -f scripts/dev/gulpfile-chrome.esm.js",
+    "safari:dev": "gulp -f scripts/dev/gulpfile-safari.esm.js",
     "build": "gulp -f scripts/gulpfile.esm.js",
     "clean": "rimraf dist",
     "lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",
     "lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx ",
     "prettier:fix": "prettier --write .",
-    "prepare": "husky install",
-    "preview": "vite preview"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": [
