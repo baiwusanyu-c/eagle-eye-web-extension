@@ -27,25 +27,29 @@ export default series(
       'esno  scripts/browser.js chrome && vite build --mode=production --config vite-background.config.ts'
     )
     // 打包 chrome manifest
-    await run('esno  scripts/manifest.js')
+    await run('esno  scripts/manifest-chrome.js')
     // 移动打包文件 dist/temp -> dist/chrome
     await moveToDir('chrome')
     // 删除打包文件 dist/temp
     await run('rimraf dist/temp')
   }),
   withTaskName('build:safari-extension', async () => {
-    // 打包 chrome 插件 popup
+    // 打包 safari 插件 popup
     await run('esno  scripts/browser.js safari && vite build --mode=production')
-    // 打包 chrome content
+    // 打包 safari content
     await run(
       'esno  scripts/browser.js safari && vite build --mode=production --config vite-content.config.ts'
     )
-    // 打包 chrome background
+    // 打包 safari background
     await run(
       'esno  scripts/browser.js safari && vite build --mode=production --config vite-background.config.ts'
     )
+    // 打包 safari manifest
+    await run('esno  scripts/manifest-safari.js')
     // 移动打包文件 dist/temp -> dist/safari
     await moveToDir('safari')
+      // safari插件打包后移动到苹果项目下
+    await run('gulp -f scripts/move-dist.esm.js')
     // 删除打包文件 dist/temp
     await run('rimraf dist/temp')
   })

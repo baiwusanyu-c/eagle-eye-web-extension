@@ -1,6 +1,6 @@
 import { readonly, ref } from 'vue'
-import type { Ref } from 'vue'
 import useBrowser from './use-browser'
+import type { Ref } from 'vue'
 
 type Cache = Ref<Record<string, unknown>>
 

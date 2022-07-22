@@ -5,3 +5,5 @@ dist-ssr
 *.local
 manifest.json
 .idea
+Beosin-Alert/Beosin-Alert Extension/Resources/scripts
+Beosin-Alert/Beosin-Alert Extension/Resources/ui

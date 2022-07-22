@@ -8,7 +8,7 @@
   import useCommon from '../../hooks/use-common'
   import { SOCIAL_LINK } from '../../enums/link'
   import { observerByBody } from '../../views/chrome-content/main'
-  import useBrowser from "../../hooks/use-browser";
+  import useBrowser from '../../hooks/use-browser'
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -102,20 +102,26 @@
         })
 
         // 接收background调取接口的结果
-        browserInst.runtime.onMessage.addListener((request: { type: MESSAGE_TYPES; data: { data: any } }, sender: any, sendResponse: () => void) => {
-          if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            const res = request.data.data
-            if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
-              analysisRes.value.source_name = res.source_name
-              analysisRes.value.source_url = res.source_url
-              openMsg()
-              // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
-              // 关掉、测试关掉后跳转 能否监听
-              observer?.disconnect()
+        browserInst.runtime.onMessage.addListener(
+          (
+            request: { type: MESSAGE_TYPES; data: { data: any } },
+            sender: any,
+            sendResponse: () => void
+          ) => {
+            if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
+              const res = request.data.data
+              if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
+                analysisRes.value.source_name = res.source_name
+                analysisRes.value.source_url = res.source_url
+                openMsg()
+                // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
+                // 关掉、测试关掉后跳转 能否监听
+                observer?.disconnect()
+              }
             }
+            sendResponse()
           }
-          sendResponse()
-        })
+        )
       }
 
       // 开始分析
@@ -127,13 +133,15 @@
           }
         })
       })
-      browserInst.runtime.onMessage.addListener((request: { type: MESSAGE_TYPES }, sender: any, sendResponse: () => void) => {
-        sendResponse()
-        // 接收 是否设置插件开启
-        if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
-          analysisWebSite()
+      browserInst.runtime.onMessage.addListener(
+        (request: { type: MESSAGE_TYPES }, sender: any, sendResponse: () => void) => {
+          sendResponse()
+          // 接收 是否设置插件开启
+          if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
+            analysisWebSite()
+          }
         }
-      })
+      )
       const { openWindow } = useCommon()
       /**
        * 关闭方法

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0411AA92288A954F00AAFC19 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 0411AA91288A954F00AAFC19 /* dist */; };
 		04755F0328867BE60062700B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F0228867BE60062700B /* AppDelegate.swift */; };
 		04755F0728867BE60062700B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0528867BE60062700B /* Main.html */; };
 		04755F0928867BE60062700B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0828867BE60062700B /* Icon.png */; };
@@ -19,8 +20,6 @@
 		04755F2128867BE80062700B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F2028867BE80062700B /* SafariWebExtensionHandler.swift */; };
 		04755F2428867BE80062700B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2328867BE80062700B /* _locales */; };
 		04755F2828867BE80062700B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2728867BE80062700B /* manifest.json */; };
-		04755F3F28869C0D0062700B /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 04755F3E28869C0D0062700B /* dist */; };
-		04755F432886A4570062700B /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 04755F422886A4570062700B /* dist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0411AA91288A954F00AAFC19 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 		04755EFF28867BE60062700B /* Beosin-Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beosin-Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04755F0228867BE60062700B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04755F0628867BE60062700B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
@@ -65,8 +65,6 @@
 		04755F2728867BE80062700B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		04755F3328867BE80062700B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04755F3428867BE80062700B /* Beosin_Alert_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Beosin_Alert_Extension.entitlements; sourceTree = "<group>"; };
-		04755F3E28869C0D0062700B /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
-		04755F422886A4570062700B /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = "Beosin-Alert Extension/Resources/dist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,6 @@
 		04755EF628867BE60062700B = {
 			isa = PBXGroup;
 			children = (
-				04755F422886A4570062700B /* dist */,
 				04755F0128867BE60062700B /* Beosin-Alert */,
 				04755F1F28867BE80062700B /* Beosin-Alert Extension */,
 				04755F0028867BE60062700B /* Products */,
@@ -145,7 +142,7 @@
 		04755F2228867BE80062700B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				04755F3E28869C0D0062700B /* dist */,
+				0411AA91288A954F00AAFC19 /* dist */,
 				04755F2328867BE80062700B /* _locales */,
 				04755F2728867BE80062700B /* manifest.json */,
 			);
@@ -239,7 +236,6 @@
 				04755F0728867BE60062700B /* Main.html in Resources */,
 				04755F1428867BE80062700B /* Assets.xcassets in Resources */,
 				04755F0B28867BE60062700B /* Style.css in Resources */,
-				04755F3F28869C0D0062700B /* dist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04755F432886A4570062700B /* dist in Resources */,
+				0411AA92288A954F00AAFC19 /* dist in Resources */,
 				04755F2828867BE80062700B /* manifest.json in Resources */,
 				04755F2428867BE80062700B /* _locales in Resources */,
 			);

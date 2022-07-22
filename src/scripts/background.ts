@@ -1,7 +1,7 @@
-import type { IAnalysis } from '../api/analysis'
 import { MESSAGE_TYPES } from '../enums'
 import { analysisUrl } from '../api/analysis'
-import useBrowser from "../hooks/use-browser";
+import useBrowser from '../hooks/use-browser'
+import type { IAnalysis } from '../api/analysis'
 const { browserInst } = useBrowser()
 async function getAnalysis(params: IAnalysis) {
   const tabList = await getCurrentTab(params.url)
