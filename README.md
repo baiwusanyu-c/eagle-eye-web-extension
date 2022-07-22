@@ -26,7 +26,7 @@
 ` "dev:content": "vue-tsc --noEmit && vite build --watch --mode=development --config vite-content.config.ts"`  
 **开发启动 content，它将打包 src/views/chrome-content 下的 vue 项目，生成 content.js，对应谷歌插件的 content.js**
 
-`"dev:manifest": "esno ./scripts/manifest.ts"`  
+`"dev:manifest": "esno ./scripts/manifest.js"`  
 **开发启动 manifest，它将生成谷歌浏览器插件的 manifest.json**
 
 `"build": "run-p dev:*"`  
