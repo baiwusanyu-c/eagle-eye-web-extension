@@ -5,7 +5,7 @@ function getManifest() {
     // update this file to update this manifest.json
     // can also be conditional based on your need
     return {
-        manifest_version: 3,
+        manifest_version: 2,
         "default_locale": "en",
         "name": "__MSG_extension_name__",
         "description": "__MSG_extension_description__",
