@@ -1,7 +1,7 @@
 {
   "name": "eagle-eye-web-extension",
   "description": "基于谷歌内核的态势感知浏览器插件扩展",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "public": true,
   "scripts": {
     "chrome:dev": "gulp -f scripts/dev/gulpfile-chrome.esm.js",
