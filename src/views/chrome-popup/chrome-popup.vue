@@ -1,11 +1,13 @@
 <script setup lang="ts">
   import { nextTick, ref } from 'vue'
-  import { MESSAGE_TYPES } from '@/enums'
-  import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
-  import { LINK, SOCIAL_LINK } from '@/enums/link'
-  import useCommon from '@/hooks/use-common'
+  import { MESSAGE_TYPES } from '../../enums'
+  import { CACHE_KEYS, useStorage } from '../../hooks/use-storage'
+  import { LINK, SOCIAL_LINK } from '../../enums/link'
+  import useCommon from '../../hooks/use-common'
+  import useBrowser from '../../hooks/use-browser'
   const isOpen = ref<string>('true')
   const { getItem, setItem } = useStorage()
+  const { browserInst } = useBrowser()
   nextTick(() => {
     getItem(CACHE_KEYS.IS_OPEN).then(res => {
       if (res && res === 'true') {
@@ -22,7 +24,7 @@
   const handleChange = (data: { newVal: string; oldVal: string }) => {
     // 设置缓存并通知是否开启插件
     setItem(CACHE_KEYS.IS_OPEN, data.newVal.toString()).then(() => {
-      chrome.runtime.sendMessage({ type: MESSAGE_TYPES.SET_SWITCH }, response => {
+      browserInst.runtime.sendMessage({ type: MESSAGE_TYPES.SET_SWITCH }, (response: Function) => {
         response('SET_SWITCH response')
       })
     })

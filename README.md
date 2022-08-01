@@ -1,67 +1,49 @@
-<p align="center">
-  <img width="144px" src="https://lianantech.com/commonImg/mail/hermit-logo.png" />
-</p>
-
-#eagle-eye-front 态势感知谷歌浏览器插件 ##主要技術依賴
+#eagle-eye-front 态势感知浏览器插件  
+该插件谷歌浏览器、edge、Safari 浏览器，它能够识别用户访问的网址，智能提示用户危险虚拟货币钓鱼网站 ##主要技術依賴
 **Vue3.2 + Vite2.x + typeScript4.5**
 
-| 名称         | 版本    | 説明                             |
-| ------------ | ------- | -------------------------------- |
-| Vue          | ^3.2.3  | 前端開發框架                     |
-| axios        | ^0.24.0 | Ajax 封裝庫                      |
-| vite         | ^2.9.x  | 工程化開發打包框架               |
-| vue-i18n     | 9       | vue3.x 國際化插件                |
-| @vueuse/core | ^7.3.0  | vue3.x 的 composition Api 方法庫 |
-| windi.css    | ^3.4.3  | css 原子化樣式庫                 |
-| element-plus | ^2.22.0 | UI 組件庫                        |
-| be-ui        | -       | 内部 UI 組件庫                   |
+| 名称      | 版本   | 説明               |
+| --------- | ------ | ------------------ |
+| Vue       | ^3.2.3 | 前端開發框架       |
+| vite      | ^2.9.x | 工程化開發打包框架 |
+| windi.css | ^3.4.3 | css 原子化樣式庫   |
+| be-ui     | -      | 内部 UI 組件庫     |
 
 ##package 指令
 
-`dev": "run-p dev:*`  
-**一键开发启动**
+`chrome:dev`  
+**开发启动 chrome 插件**
 
-`"dev:web": "vue-tsc --noEmit && vite build --watch --mode=development"`  
-**开发启动 web，它会打包一个多页面应用，对应谷歌插件的 popup 页面与 option 页面**
+`safari:dev`  
+**开发启动 safari 插件**
 
-`"dev:background": "vue-tsc --noEmit && vite build --watch --mode=development --config vite-background.config.ts"`  
-**开发启动 background，它将打包根目录下 scripts 文件夹内的 background.ts，对应谷歌插件的 background.js**
+`build`  
+**基于 vite、gulp 的打包工具，它将同时打包 Safari 与 Chrome 插件**
 
-` "dev:content": "vue-tsc --noEmit && vite build --watch --mode=development --config vite-content.config.ts"`  
-**开发启动 content，它将打包 src/views/chrome-content 下的 vue 项目，生成 content.js，对应谷歌插件的 content.js**
+`clean`  
+**使用 rimraf 清除 dist**
 
-`"dev:manifest": "esno ./scripts/manifest.ts"`  
-**开发启动 manifest，它将生成谷歌浏览器插件的 manifest.json**
-
-`"build": "run-p dev:*"`  
-**一键打包，其实这里的指令和 dev 一样**
-
-`"build:prod": "vite build --mode production",`  
-**以預發佈環境後臺打包項目**
-
-`"build:pretest": "vite build --mode pretest",`  
-**以正式發佈環境後臺打包項目**
-
-`"lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",`  
+`lint:ts`  
 **esLint 代碼校验**
 
-`"lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx",`  
+`lint:ts-fix`  
 **esLint 代碼校验修復**
 
-`"prettier:fix": "prettier --write ."`,  
+`prettier:fix`,  
 **prettier 格式修復**
 
-`"prepare": "husky install",`  
+`prepare`  
 **husky 初始化**
-
-`"formatDateiew": "vite preview --port 8080 --host"`  
-**打包预览，当你打包后使用该指令 vite 会自动开启一个容器来运行 dist 打包结果**
 
 ## 目錄結構
 
 - node_modules 項目依賴
+- Beosin-Alert safar 插件项目文件夹
 - public 公共文件
+- icon 图标 svg 文件
+- docs 开发文档
 - env 环境变量文件夹
+- script 打包脚本
 - src
   api Api 封裝
 
@@ -69,7 +51,7 @@
 
   components 存放公用组件
 
-  config 环境配置枚舉，包含後臺幾口，第三方鏈接
+  enums 环境配置枚舉，包含後臺幾口，第三方鏈接
 
   utils 配置与公共方法
 
