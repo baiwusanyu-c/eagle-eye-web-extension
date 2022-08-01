@@ -1,9 +1,7 @@
 import fs from 'fs-extra'
 import pkg from '../package.json'
-import { r } from './util'
-import type { Manifest } from 'webextension-polyfill'
 
-function getManifest(): Manifest.WebExtensionManifest {
+function getManifest() {
   // update this file to update this manifest.json
   // can also be conditional based on your need
   return {
@@ -13,8 +11,8 @@ function getManifest(): Manifest.WebExtensionManifest {
     description: pkg.description,
     action: {
       default_icon: {
-        '19': './ui/favicon_16.png',
-        '38': './ui/favicon_32.png',
+        19: './ui/favicon_16.png',
+        38: './ui/favicon_32.png',
       },
       default_popup: './ui/popup.html',
     },
@@ -44,22 +42,22 @@ function getManifest(): Manifest.WebExtensionManifest {
     host_permissions: ['*://*/*'],
     permissions: ['storage', 'activeTab'],
     homepage_url: 'https://eagleeye.beosin.com/',
-    // TODO
-    //default_locale: "en",
+    default_locale: 'en',
     icons: {
-      '128': './ui/favicon_128.png',
-      '16': './ui/favicon_16.png',
-      '32': './ui/favicon_32.png',
-      '64': './ui/favicon_64.png',
+      128: './ui/favicon_128.png',
+      16: './ui/favicon_16.png',
+      32: './ui/favicon_32.png',
+      64: './ui/favicon_64.png',
     },
   }
 }
 
 export async function writeManifest() {
-  if (!fs.existsSync(r('./dist'))) {
-    await fs.mkdirSync(r('./dist'))
+  if (!fs.existsSync('dist/')) {
+    await fs.mkdirSync('dist/')
+    await fs.mkdirSync('dist/temp')
   }
-  await fs.writeJSON(r('./dist/manifest.json'), await getManifest(), { spaces: 2 })
+  await fs.writeJSON('dist/temp/manifest.json', await getManifest(), { spaces: 2 })
 }
 
 writeManifest()

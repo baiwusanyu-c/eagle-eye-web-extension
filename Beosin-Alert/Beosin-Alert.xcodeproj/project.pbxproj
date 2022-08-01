@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0411AA92288A954F00AAFC19 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 0411AA91288A954F00AAFC19 /* dist */; };
+		04755F0328867BE60062700B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F0228867BE60062700B /* AppDelegate.swift */; };
+		04755F0728867BE60062700B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0528867BE60062700B /* Main.html */; };
+		04755F0928867BE60062700B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0828867BE60062700B /* Icon.png */; };
+		04755F0B28867BE60062700B /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0A28867BE60062700B /* Style.css */; };
+		04755F0D28867BE60062700B /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 04755F0C28867BE60062700B /* Script.js */; };
+		04755F0F28867BE60062700B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F0E28867BE60062700B /* ViewController.swift */; };
+		04755F1228867BE60062700B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04755F1028867BE60062700B /* Main.storyboard */; };
+		04755F1428867BE80062700B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04755F1328867BE80062700B /* Assets.xcassets */; };
+		04755F1C28867BE80062700B /* Beosin-Alert Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04755F1B28867BE80062700B /* Beosin-Alert Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04755F2128867BE80062700B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04755F2028867BE80062700B /* SafariWebExtensionHandler.swift */; };
+		04755F2428867BE80062700B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2328867BE80062700B /* _locales */; };
+		04755F2828867BE80062700B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 04755F2728867BE80062700B /* manifest.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04755F1D28867BE80062700B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04755EF728867BE60062700B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04755F1A28867BE80062700B;
+			remoteInfo = "Beosin-Alert Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04755F3A28867BE80062700B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				04755F1C28867BE80062700B /* Beosin-Alert Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0411AA91288A954F00AAFC19 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		04755EFF28867BE60062700B /* Beosin-Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beosin-Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04755F0228867BE60062700B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04755F0628867BE60062700B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		04755F0828867BE60062700B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		04755F0A28867BE60062700B /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		04755F0C28867BE60062700B /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		04755F0E28867BE60062700B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04755F1128867BE60062700B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04755F1328867BE80062700B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04755F1528867BE80062700B /* Beosin_Alert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Beosin_Alert.entitlements; sourceTree = "<group>"; };
+		04755F1628867BE80062700B /* Beosin-Alert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Beosin-Alert.entitlements"; sourceTree = "<group>"; };
+		04755F1B28867BE80062700B /* Beosin-Alert Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Beosin-Alert Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04755F2028867BE80062700B /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		04755F2328867BE80062700B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		04755F2728867BE80062700B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		04755F3328867BE80062700B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04755F3428867BE80062700B /* Beosin_Alert_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Beosin_Alert_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04755EFC28867BE60062700B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04755F1828867BE80062700B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04755EF628867BE60062700B = {
+			isa = PBXGroup;
+			children = (
+				04755F0128867BE60062700B /* Beosin-Alert */,
+				04755F1F28867BE80062700B /* Beosin-Alert Extension */,
+				04755F0028867BE60062700B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04755F0028867BE60062700B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04755EFF28867BE60062700B /* Beosin-Alert.app */,
+				04755F1B28867BE80062700B /* Beosin-Alert Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04755F0128867BE60062700B /* Beosin-Alert */ = {
+			isa = PBXGroup;
+			children = (
+				04755F0228867BE60062700B /* AppDelegate.swift */,
+				04755F0E28867BE60062700B /* ViewController.swift */,
+				04755F1028867BE60062700B /* Main.storyboard */,
+				04755F1328867BE80062700B /* Assets.xcassets */,
+				04755F1528867BE80062700B /* Beosin_Alert.entitlements */,
+				04755F1628867BE80062700B /* Beosin-Alert.entitlements */,
+				04755F0428867BE60062700B /* Resources */,
+			);
+			path = "Beosin-Alert";
+			sourceTree = "<group>";
+		};
+		04755F0428867BE60062700B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04755F0528867BE60062700B /* Main.html */,
+				04755F0828867BE60062700B /* Icon.png */,
+				04755F0A28867BE60062700B /* Style.css */,
+				04755F0C28867BE60062700B /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04755F1F28867BE80062700B /* Beosin-Alert Extension */ = {
+			isa = PBXGroup;
+			children = (
+				04755F2028867BE80062700B /* SafariWebExtensionHandler.swift */,
+				04755F3328867BE80062700B /* Info.plist */,
+				04755F3428867BE80062700B /* Beosin_Alert_Extension.entitlements */,
+				04755F2228867BE80062700B /* Resources */,
+			);
+			path = "Beosin-Alert Extension";
+			sourceTree = "<group>";
+		};
+		04755F2228867BE80062700B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0411AA91288A954F00AAFC19 /* dist */,
+				04755F2328867BE80062700B /* _locales */,
+				04755F2728867BE80062700B /* manifest.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04755EFE28867BE60062700B /* Beosin-Alert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04755F3B28867BE80062700B /* Build configuration list for PBXNativeTarget "Beosin-Alert" */;
+			buildPhases = (
+				04755EFB28867BE60062700B /* Sources */,
+				04755EFC28867BE60062700B /* Frameworks */,
+				04755EFD28867BE60062700B /* Resources */,
+				04755F3A28867BE80062700B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04755F1E28867BE80062700B /* PBXTargetDependency */,
+			);
+			name = "Beosin-Alert";
+			productName = "Beosin-Alert";
+			productReference = 04755EFF28867BE60062700B /* Beosin-Alert.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04755F1A28867BE80062700B /* Beosin-Alert Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04755F3728867BE80062700B /* Build configuration list for PBXNativeTarget "Beosin-Alert Extension" */;
+			buildPhases = (
+				04755F1728867BE80062700B /* Sources */,
+				04755F1828867BE80062700B /* Frameworks */,
+				04755F1928867BE80062700B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Beosin-Alert Extension";
+			productName = "Beosin-Alert Extension";
+			productReference = 04755F1B28867BE80062700B /* Beosin-Alert Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04755EF728867BE60062700B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					04755EFE28867BE60062700B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					04755F1A28867BE80062700B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 04755EFA28867BE60062700B /* Build configuration list for PBXProject "Beosin-Alert" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04755EF628867BE60062700B;
+			productRefGroup = 04755F0028867BE60062700B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04755EFE28867BE60062700B /* Beosin-Alert */,
+				04755F1A28867BE80062700B /* Beosin-Alert Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04755EFD28867BE60062700B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04755F0928867BE60062700B /* Icon.png in Resources */,
+				04755F1228867BE60062700B /* Main.storyboard in Resources */,
+				04755F0D28867BE60062700B /* Script.js in Resources */,
+				04755F0728867BE60062700B /* Main.html in Resources */,
+				04755F1428867BE80062700B /* Assets.xcassets in Resources */,
+				04755F0B28867BE60062700B /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04755F1928867BE80062700B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0411AA92288A954F00AAFC19 /* dist in Resources */,
+				04755F2828867BE80062700B /* manifest.json in Resources */,
+				04755F2428867BE80062700B /* _locales in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04755EFB28867BE60062700B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04755F0F28867BE60062700B /* ViewController.swift in Sources */,
+				04755F0328867BE60062700B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04755F1728867BE80062700B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04755F2128867BE80062700B /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04755F1E28867BE80062700B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04755F1A28867BE80062700B /* Beosin-Alert Extension */;
+			targetProxy = 04755F1D28867BE80062700B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04755F0528867BE60062700B /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04755F0628867BE60062700B /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		04755F1028867BE60062700B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04755F1128867BE60062700B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04755F3528867BE80062700B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04755F3628867BE80062700B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		04755F3828867BE80062700B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Beosin-Alert Extension/Beosin_Alert_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Beosin-Alert Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Beosin-Alert Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eagleeye.beosin.Beosin-Alert.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		04755F3928867BE80062700B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Beosin-Alert Extension/Beosin_Alert_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Beosin-Alert Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Beosin-Alert Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eagleeye.beosin.Beosin-Alert.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		04755F3C28867BE80062700B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Beosin-Alert/Beosin-Alert.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Beosin-Alert";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eagleeye.beosin.Beosin-Alert";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		04755F3D28867BE80062700B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Beosin-Alert/Beosin-Alert.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Beosin-Alert";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eagleeye.beosin.Beosin-Alert";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04755EFA28867BE60062700B /* Build configuration list for PBXProject "Beosin-Alert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04755F3528867BE80062700B /* Debug */,
+				04755F3628867BE80062700B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04755F3728867BE80062700B /* Build configuration list for PBXNativeTarget "Beosin-Alert Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04755F3828867BE80062700B /* Debug */,
+				04755F3928867BE80062700B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04755F3B28867BE80062700B /* Build configuration list for PBXNativeTarget "Beosin-Alert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04755F3C28867BE80062700B /* Debug */,
+				04755F3D28867BE80062700B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04755EF728867BE60062700B /* Project object */;
+}

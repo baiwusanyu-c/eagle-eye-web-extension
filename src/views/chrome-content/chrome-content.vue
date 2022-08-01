@@ -1,13 +1,14 @@
 <script lang="tsx">
   import { defineComponent, nextTick, ref } from 'vue'
   import { debounce } from 'lodash-es'
-  import { ANALYSIS_RES, MESSAGE_TYPES } from '@/enums'
-  import { getHost } from '@/utils/common'
-  import { web3Reg } from '@/utils/reg'
-  import { CACHE_KEYS, useStorage } from '@/hooks/use-storage'
-  import useCommon from '@/hooks/use-common'
-  import { SOCIAL_LINK } from '@/enums/link'
-  import { observerByBody } from '@/views/chrome-content/main'
+  import { ANALYSIS_RES, MESSAGE_TYPES } from '../../enums'
+  import { getHost } from '../../utils/common'
+  import { web3Reg } from '../../utils/reg'
+  import { CACHE_KEYS, useStorage } from '../../hooks/use-storage'
+  import useCommon from '../../hooks/use-common'
+  import { SOCIAL_LINK } from '../../enums/link'
+  import { observerByBody } from '../../views/chrome-content/main'
+  import useBrowser from '../../hooks/use-browser'
   export default defineComponent({
     setup() {
       const showMsg = ref<boolean>(false)
@@ -17,6 +18,7 @@
       // 获取js的请求信息
       const infos = ref<Array<string>>([])
       const { getItem, setItem } = useStorage()
+      const { browserInst } = useBrowser()
       /**
        * 分析网站
        */
@@ -94,26 +96,32 @@
       const analysisPhishingSite = async () => {
         // 发送给background调取接口
         const host = getHost()
-        chrome.runtime.sendMessage({
+        browserInst.runtime.sendMessage({
           type: MESSAGE_TYPES.GET_ANALYSIS_RES,
           data: { host, web3_flag: isWeb3.value },
         })
 
         // 接收background调取接口的结果
-        chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-          if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
-            const res = request.data.data
-            if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
-              analysisRes.value.source_name = res.source_name
-              analysisRes.value.source_url = res.source_url
-              openMsg()
-              // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
-              // 关掉、测试关掉后跳转 能否监听
-              observer?.disconnect()
+        browserInst.runtime.onMessage.addListener(
+          (
+            request: { type: MESSAGE_TYPES; data: { data: any } },
+            sender: any,
+            sendResponse: () => void
+          ) => {
+            if (request.type === MESSAGE_TYPES.ANALYSIS_RES) {
+              const res = request.data.data
+              if (res.detection_result === ANALYSIS_RES.UNSECURITY) {
+                analysisRes.value.source_name = res.source_name
+                analysisRes.value.source_url = res.source_url
+                openMsg()
+                // 关闭监听，提示过了以后，确认了这是钓鱼网站，后续的js请求我们不在关心，这里就关掉监听
+                // 关掉、测试关掉后跳转 能否监听
+                observer?.disconnect()
+              }
             }
+            sendResponse()
           }
-          sendResponse()
-        })
+        )
       }
 
       // 开始分析
@@ -125,13 +133,15 @@
           }
         })
       })
-      chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        sendResponse()
-        // 接收 是否设置插件开启
-        if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
-          analysisWebSite()
+      browserInst.runtime.onMessage.addListener(
+        (request: { type: MESSAGE_TYPES }, sender: any, sendResponse: () => void) => {
+          sendResponse()
+          // 接收 是否设置插件开启
+          if (request.type === MESSAGE_TYPES.INFORM_ANALYSIS) {
+            analysisWebSite()
+          }
         }
-      })
+      )
       const { openWindow } = useCommon()
       /**
        * 关闭方法
