@@ -5,8 +5,7 @@
  */
 // 打包方式：串行(series)  并行(parallel)
 import path from 'path'
-import { dest, parallel, series, src } from 'gulp'
-import fs from 'fs-extra'
+import { dest, series, src } from 'gulp'
 import { run, withTaskName } from './utils.js'
 function moveToDir(targetDir) {
   return src(path.resolve('../dist/temp/**')).pipe(dest(path.resolve(`../dist/${targetDir}`)))
