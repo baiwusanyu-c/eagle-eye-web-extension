@@ -1,7 +1,7 @@
 {
   "name": "eagle-eye-web-extension",
   "description": "A malicious website checker developed by Beosin.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "public": true,
   "scripts": {
     "chrome:dev": "gulp -f scripts/dev/gulpfile-chrome.esm.js",
